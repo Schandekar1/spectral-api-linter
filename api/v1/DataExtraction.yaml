@@ -1,15 +1,15 @@
 openapi: 3.0.1
 info:
-  title: Data Extraction API
-  description: The DataExtraction API data from CXone for external
-    reporting purposes. For example, you can extract QM Workflow data. You must generate
+  title: Data Extraction APIs - V1
+  description: The Data Extraction API let you extract data from CXone for external
+    reporting purposes.  For example, you can extract QM Workflow data. You must generate
     a key in order to use this API.
   contact:
     email: R&DApiTeam@niceincontact.com
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: V13
+  version: V1
 servers:
 - url: https://na1.nice-incontact.com/data-extraction/V1
   description: Production Oregon Environment (uses live data)
@@ -63,11 +63,12 @@ paths:
           description: Internal Server Error
       security:
       - bearerAuth: []
+      x-cxone-audience: company-internal1
       x-cxone-api-key: 1168ae16-a6bb-4bf9-893e-3b07347a5ea3
     post:
       tags:
       - Extracting Data
-      summary: Prepares requested data for extraction
+      summary: Prepares requested data for extraction.
       description: After a request to extract data is made, the data is gathered and
         prepared for extraction. The data is available in S3 as a csv file for 24
         hours. When done, a job ID is returned.
@@ -794,7 +795,7 @@ components:
           type: array
           description: A modified list of entity licenses needed to access the entity
             you are updating.
-          example: [QM]
+          example: QM
           items:
             type: string
             description: A modified list of entity licenses needed to access the entity
@@ -804,7 +805,7 @@ components:
           type: array
           description: A modified list of permissions needed to access the entity
             that you are updating.
-          example: [agentList:View]
+          example: agentList:View
           items:
             type: string
             description: A modified list of permissions needed to access the entity
