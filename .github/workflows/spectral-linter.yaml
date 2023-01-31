@@ -20,7 +20,7 @@ jobs:
     steps:
       # Git Checkout
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -28,11 +28,11 @@ jobs:
       - name: MegaLinter - API JSON Validation
         id: ml
         # You can override MegaLinter flavor used to have faster performances
-        # More info at https://megalinter.github.io/flavors/
+        # More info at https://oxsecurity.github.io/megalinter/flavors/
         uses: oxsecurity/megalinter/flavors/dart@v5
         env:
           # All available variables are described in documentation
-          # https://megalinter.github.io/configuration/
+          # https://oxsecurity.github.io/megalinter/configuration/
           VALIDATE_ALL_CODEBASE: false # Validates all source when push on main, else just the git diff with main. Override with true if you always want to lint all sources
           SPECTRAL_TOKEN: ${{ secrets.SPECTRAL_TOKEN }}       
           OPENAPI_SPECTRAL_FILTER_REGEX_INCLUDE: api
