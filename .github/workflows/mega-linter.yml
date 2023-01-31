@@ -37,7 +37,7 @@ jobs:
         # You can override MegaLinter flavor used to have faster performances
         # More info at https://megalinter.io/flavors/
         uses: oxsecurity/megalinter@v6
-         env:
+        env:
           # All available variables are described in documentation
           # https://oxsecurity.github.io/megalinter/configuration/
           VALIDATE_ALL_CODEBASE: false # Validates all source when push on main, else just the git diff with main. Override with true if you always want to lint all sources
