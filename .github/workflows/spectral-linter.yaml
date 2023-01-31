@@ -29,13 +29,13 @@ jobs:
         id: ml
         # You can override MegaLinter flavor used to have faster performances
         # More info at https://megalinter.github.io/flavors/
-        uses: oxsecurity/megalinter/flavors/dart@v5.11.0
+        uses: oxsecurity/megalinter/flavors/dart@v5
         env:
           # All available variables are described in documentation
           # https://megalinter.github.io/configuration/
           VALIDATE_ALL_CODEBASE: false # Validates all source when push on main, else just the git diff with main. Override with true if you always want to lint all sources
           SPECTRAL_TOKEN: ${{ secrets.SPECTRAL_TOKEN }}       
-          OPENAPI_SPECTRAL_FILTER_REGEX_INCLUDE: .*api\/(.*)\.yaml
+          OPENAPI_SPECTRAL_FILTER_REGEX_INCLUDE: api
           OPENAPI_SPECTRAL_CLI_LINT_MODE: file
           OPENAPI_SPECTRAL_FILE_EXTENSIONS: ".yaml"
           OPENAPI_SPECTRAL_RULES_PATH: "validation/yamlSchema/openapi/validation-rules.yaml"
