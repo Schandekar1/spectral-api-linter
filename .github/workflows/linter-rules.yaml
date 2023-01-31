@@ -1,0 +1,7 @@
+rules:
+  customRule:
+    message: "This is a custom rule"
+    severity: warning
+    source:
+      - message: "This is a custom rule"
+        source: custom-rule
