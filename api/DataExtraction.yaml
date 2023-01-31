@@ -67,7 +67,7 @@ paths:
     post:
       tags:
       - Extracting Data
-      summary: Prepares requested data for extraction.
+      summary: Prepares requested data for extraction
       description: After a request to extract data is made, the data is gathered and
         prepared for extraction. The data is available in S3 as a csv file for 24
         hours. When done, a job ID is returned.
