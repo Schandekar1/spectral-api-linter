@@ -9,4 +9,4 @@ jobs:
         with:
           node-version: '12.x'
       - run: npm install
-      - run: npx spectral lint --config .spectral.yml --ignore-unknown
+      - run: npx spectral lint --config linter-rules.yml --ignore-unknown
