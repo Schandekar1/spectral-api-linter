@@ -1,4 +1,4 @@
-extends: [[spectral:oas, all]]
+extends: ["spectral:oas", "all"]
 rules:
   operation-operationId: false
   operation-tags: false
