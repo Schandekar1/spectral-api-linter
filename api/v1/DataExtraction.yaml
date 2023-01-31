@@ -794,7 +794,7 @@ components:
           type: array
           description: A modified list of entity licenses needed to access the entity
             you are updating.
-          example: QM
+          example: [QM]
           items:
             type: string
             description: A modified list of entity licenses needed to access the entity
@@ -804,7 +804,7 @@ components:
           type: array
           description: A modified list of permissions needed to access the entity
             that you are updating.
-          example: agentList:View
+          example: [agentList:View]
           items:
             type: string
             description: A modified list of permissions needed to access the entity
