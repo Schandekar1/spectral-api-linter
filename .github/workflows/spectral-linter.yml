@@ -1,12 +1,65 @@
-on: [push]
+# This is a basic workflow to validate API documentation file which is checked in 
 
+name: API Format validation
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+ 
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  lint:
+  build:
+    name: MegaLinter
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      # Git Checkout
+      - name: Checkout Code
+        uses: actions/checkout@v2
         with:
-          node-version: '12.x'
-      - run: npm install
-      - run: npx spectral lint --config linter-rules.yml --ignore-unknown
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+     # MegaLinter
+      - name: MegaLinter - API JSON Validation
+        id: ml
+        # You can override MegaLinter flavor used to have faster performances
+        # More info at https://megalinter.github.io/flavors/
+        uses: oxsecurity/megalinter/flavors/dart@v5.11.0
+        env:
+          # All available variables are described in documentation
+          # https://megalinter.github.io/configuration/
+          VALIDATE_ALL_CODEBASE: false # Validates all source when push on main, else just the git diff with main. Override with true if you always want to lint all sources
+          SPECTRAL_TOKEN: ${{ secrets.SPECTRAL_TOKEN }}       
+          OPENAPI_SPECTRAL_FILTER_REGEX_INCLUDE: .*api\/(.*)\.yaml
+          OPENAPI_SPECTRAL_CLI_LINT_MODE: file
+          OPENAPI_SPECTRAL_FILE_EXTENSIONS: ".yaml"
+          OPENAPI_SPECTRAL_RULES_PATH: "./validation/openAPIValidation.yaml"
+          ENABLE_LINTERS: OPENAPI_SPECTRAL         
+          PRINT_ALPACA: false
+          # ADD YOUR CUSTOM ENV VARIABLES HERE OR DEFINE THEM IN A FILE .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
+          # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
+          
+  Webhook:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call Webhook
+        uses: distributhor/workflow-webhook@v2.0.3
+        env:
+         webhook_type: 'json-extended'
+         webhook_url: ${{ secrets.WEBHOOK_URL }}
+         webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
+          
+     # - name: Webhook
+     #   uses: zzzze/webhook-trigger@master
+     #   with:
+     #       data: "{\"event_type\":\"push\"}"
+     #       webhook_url: ${{ secrets.WEBHOOK_URL }}
+     #       options: "-H \"Accept: application/vnd.github.everest-preview+json\" -H \"Authorization: token ${{ secrets.WEBHOOK_TOKEN } -H \"Header: X-Hub-Signature-256 ${{ GITHUB_SHA }}\""
+     
