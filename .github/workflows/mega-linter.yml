@@ -45,7 +45,7 @@ jobs:
           OPENAPI_SPECTRAL_FILTER_REGEX_INCLUDE: .*api\/(.*)\.yaml
           OPENAPI_SPECTRAL_CLI_LINT_MODE: file
           OPENAPI_SPECTRAL_FILE_EXTENSIONS: ".yaml"
-          OPENAPI_SPECTRAL_RULES_PATH: "./validation/yamlSchema/openapi/1-0-0.yaml"
+          OPENAPI_SPECTRAL_RULES_PATH: "./validation/yamlSchema/openapi/validation-rules.yaml"
           ENABLE_LINTERS: OPENAPI_SPECTRAL         
           PRINT_ALPACA: false
           # ADD YOUR CUSTOM ENV VARIABLES HERE OR DEFINE THEM IN A FILE .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
