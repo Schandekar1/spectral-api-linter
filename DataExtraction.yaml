@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Data Extraction API
   description: The DataExtraction API data from CXone for external
-    reporting purposes.  For example, you can extract QM Workflow data. You must generate
+    reporting purposes. For example, you can extract QM Workflow data. You must generate
     a key in order to use this API.
   contact:
     email: R&DApiTeam@niceincontact.com
