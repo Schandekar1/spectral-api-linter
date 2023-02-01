@@ -1,6 +1,6 @@
 extends: [["spectral:oas", "all"]]
 
-functionsDir: ".stoplight/custom-functions"
+functionsDir: ".stoplight/customFunctions"
 functions: [checkMethodTypes]
 
 rules:
