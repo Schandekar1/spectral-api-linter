@@ -63,7 +63,7 @@ paths:
           description: Internal Server Error
       security:
       - bearerAuth: []
-      x-cxone-audience: company-internal1
+      x-cxone-audience: company-internal
       x-cxone-api-key: 1168ae16-a6bb-4bf9-893e-3b07347a5ea3
     post:
       tags:

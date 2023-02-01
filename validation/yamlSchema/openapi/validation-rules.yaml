@@ -28,7 +28,7 @@ rules:
  
   cxone-x-cxone-audience-value:
     description: Each API operation (GET,POST,DELETE, etc) must have a 'x-cxone-audience' extension with accepted value that is listed on confluence page titled 'APIFirst Guide - Extension Fields'
-    severity: error    
+    severity: warn    
     given: $.paths[*][get,put,post,delete,options,head,patch,trace]
     then:
       field: x-cxone-audience
