@@ -1,64 +1,64 @@
 # extends: ["spectral:oas", "all"]
-# rules:
-#   operation-operationId: false
-#   operation-tags: false
-#   contact-properties: false
-#   tag-description: false
+rules:
+  operation-operationId: false
+  operation-tags: false
+  contact-properties: false
+  tag-description: false
   
-#   cxone-headers-hyphenated-pascal-case:
-#     description: All `HTTP` headers MUST use `Hyphenated-Pascal-Case' notation
-#     severity: error
-#     given: "$..parameters[?(@.in == 'header')].name"
-#     message: "'HTTP' headers MUST follow 'Hyphenated-Pascal-Case' notation"
-#     recommended: true
-#     type: style
-#     then: 
-#       function: pattern
-#       functionOptions:
-#         match: "/^([A-Z][a-z0-9]-)*([A-Z][a-z0-9])+/"
+  cxone-headers-hyphenated-pascal-case:
+    description: All `HTTP` headers MUST use `Hyphenated-Pascal-Case' notation
+    severity: error
+    given: "$..parameters[?(@.in == 'header')].name"
+    message: "'HTTP' headers MUST follow 'Hyphenated-Pascal-Case' notation"
+    recommended: true
+    type: style
+    then: 
+      function: pattern
+      functionOptions:
+        match: "/^([A-Z][a-z0-9]-)*([A-Z][a-z0-9])+/"
 
-#   cxone-x-cxone-audience-exist:
-#     description: Each API operation (GET,POST,DELETE, etc) must have a 'x-cxone-audience' extension'
-#     severity: error
-#     given: $.paths[*][get,put,post,delete,options,head,patch,trace]
-#     then:
-#       field: x-cxone-audience
-#       function: truthy             
+  cxone-x-cxone-audience-exist:
+    description: Each API operation (GET,POST,DELETE, etc) must have a 'x-cxone-audience' extension'
+    severity: error
+    given: $.paths[*][get,put,post,delete,options,head,patch,trace]
+    then:
+      field: x-cxone-audience
+      function: truthy             
  
-#   cxone-x-cxone-audience-value:
-#     description: Each API operation (GET,POST,DELETE, etc) must have a 'x-cxone-audience' extension with accepted value that is listed on confluence page titled 'APIFirst Guide - Extension Fields'
-#     severity: warn    
-#     given: $.paths[*][get,put,post,delete,options,head,patch,trace]
-#     then:
-#       field: x-cxone-audience
-#       function: enumeration
-#       functionOptions:
-#         values:       
-#         - company-internal
-#         - external-partner
-#         - external-public
+  cxone-x-cxone-audience-value:
+    description: Each API operation (GET,POST,DELETE, etc) must have a 'x-cxone-audience' extension with accepted value that is listed on confluence page titled 'APIFirst Guide - Extension Fields'
+    severity: error    
+    given: $.paths[*][get,put,post,delete,options,head,patch,trace]
+    then:
+      field: x-cxone-audience
+      function: enumeration
+      functionOptions:
+        values:       
+        - company-internal
+        - external-partner
+        - external-public
   
-#   cxone-x-cxone-api-key-exist:
-#     description: Each API operation must have a 'x-cxone-api-key' extension with accepted value (GUID/UUID) n'
-#     severity: error
-#     given: $.paths[*][get,put,post,delete,options,head,patch,trace]
-#     then:
-#       field: x-cxone-api-key
-#       function: truthy         
+  cxone-x-cxone-api-key-exist:
+    description: Each API operation must have a 'x-cxone-api-key' extension with accepted value (GUID/UUID) n'
+    severity: error
+    given: $.paths[*][get,put,post,delete,options,head,patch,trace]
+    then:
+      field: x-cxone-api-key
+      function: truthy         
   
-#   cxone-x-cxone-productCatalogpermissions-exist:
-#     description: Each operation must have a 'x-cxone-productCatalogPermissions' extension with accepted value'
-#     severity: error
-#     given: $.paths[*][get,put,post,delete,options,head,patch,trace]
-#     then:
-#       field: x-cxone-productCatalogPermissions
-#       function: truthy         
+  cxone-x-cxone-productCatalogpermissions-exist:
+    description: Each operation must have a 'x-cxone-productCatalogPermissions' extension with accepted value'
+    severity: error
+    given: $.paths[*][get,put,post,delete,options,head,patch,trace]
+    then:
+      field: x-cxone-productCatalogPermissions
+      function: truthy         
     
-#   cxone-request-support-json-oas3:
-#     description: Every request SHOULD support `application/json` media type
-#     formats: [oas3]
-#     severity: warn
-#     message: "{{description}}: {{error}}"
-#     given: $.paths.[*].requestBody.content[?(@property.indexOf('json') === -1)]^
-#     then:
-#       function: falsy
+  cxone-request-support-json-oas3:
+    description: Every request SHOULD support `application/json` media type
+    formats: [oas3]
+    severity: warn
+    message: "{{description}}: {{error}}"
+    given: $.paths.[*].requestBody.content[?(@property.indexOf('json') === -1)]^
+    then:
+      function: falsy
