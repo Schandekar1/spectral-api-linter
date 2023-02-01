@@ -1,10 +1,22 @@
 extends: [["spectral:oas", "all"]]
 
+#functionsDir: ".stoplight/customFunctions"
+functions:
+  - checkMethodTypes
+
 rules:
   operation-operationId: false
   operation-tags: false
   contact-properties: false
   tag-description: false
+
+  # http-allowed-method-types:
+  #    description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
+  #    given: $.paths[*]
+  #    severity: error
+  #    then:
+  #      field: "@key"
+  #      function: "checkMethodTypes"
 
   http-allowed-method-types:
     description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
@@ -72,5 +84,3 @@ rules:
   #   then:
   #     function: falsy
 
-#functionsDir: ".stoplight/customFunctions"
-functions: [checkMethodTypes]
