@@ -1,8 +1,5 @@
 extends: [["spectral:oas", "all"]]
 
-functionsDir: ".stoplight/customFunctions"
-functions: [checkMethodTypes]
-
 rules:
   operation-operationId: false
   operation-tags: false
@@ -74,3 +71,6 @@ rules:
   #   given: $.paths.[*].requestBody.content[?(@property.indexOf('json') === -1)]^
   #   then:
   #     function: falsy
+
+functionsDir: ".stoplight/customFunctions"
+functions: ["checkMethodTypes"]
