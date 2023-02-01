@@ -378,7 +378,7 @@ paths:
       - bearerAuth: []
       x-cxone-audience: company-internal
       x-cxone-api-key: 4d4bc2bb-2527-41bb-8d95-2bbb857321e0
-  /entities/if_not_exists/{validateEntityVersion}:
+  /entities/if-not-exists/{validate_Entity_Version}:
     post:
       tags:
       - Internal Data Extraction APIs
@@ -386,7 +386,7 @@ paths:
       description: Adds a new entity.
       operationId: saveEntityIfNotExists
       parameters:
-      - name: validateEntityVersion
+      - name: validate_Entity_Version
         in: path
         description: Name of the entity you are getting.
         required: true
