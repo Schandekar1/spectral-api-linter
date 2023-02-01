@@ -378,7 +378,7 @@ paths:
       - bearerAuth: []
       x-cxone-audience: company-internal
       x-cxone-api-key: 4d4bc2bb-2527-41bb-8d95-2bbb857321e0
-  /entities/if-not-exists/{validateEntityVersion}:
+  /entities/if_not_exists/{validateEntityVersion}:
     post:
       tags:
       - Internal Data Extraction APIs
