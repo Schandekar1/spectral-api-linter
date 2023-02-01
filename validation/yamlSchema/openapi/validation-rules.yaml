@@ -8,7 +8,15 @@ rules:
   operation-tags: false
   contact-properties: false
   tag-description: false
-  
+
+  http-allowed-method-types:
+    description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
+    message: "{{error}}"
+    given: $.paths[*]
+    severity: error
+    then:
+      function: "checkMethodTypes"
+
   # cxone-headers-hyphenated-pascal-case:
   #   description: All `HTTP` headers MUST use `Hyphenated-Pascal-Case' notation
   #   severity: error
@@ -66,11 +74,3 @@ rules:
   #   given: $.paths.[*].requestBody.content[?(@property.indexOf('json') === -1)]^
   #   then:
   #     function: falsy
-
-  http-allowed-method-types:
-  description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
-  message: "{{error}}"
-  given: $.paths[*]
-  severity: error
-  then:
-    function: "checkMethodTypes"
