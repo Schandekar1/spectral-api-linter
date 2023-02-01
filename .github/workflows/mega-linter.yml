@@ -45,7 +45,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
           OPENAPI_SPECTRAL_FILTER_REGEX_INCLUDE: .*api\/(.*)\.yaml
           OPENAPI_SPECTRAL_CLI_LINT_MODE: file
-          OPENAPI_SPECTRAL_FILE_EXTENSIONS: [".yml", ".yaml", ".json"]
+          OPENAPI_SPECTRAL_FILE_EXTENSIONS: ".yaml"
           OPENAPI_SPECTRAL_CONFIG_FILE: "./validation/yamlSchema/openapi/validation-rules.yaml"
           #OPENAPI_SPECTRAL_RULES_PATH: "./validation/yamlSchema/openapi/validation-rules.yaml"
           ENABLE_LINTERS: OPENAPI_SPECTRAL         
