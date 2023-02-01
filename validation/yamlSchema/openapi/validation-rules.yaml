@@ -72,5 +72,5 @@ rules:
   #   then:
   #     function: falsy
 
-functionsDir: ".stoplight/customFunctions"
-functions: ["checkMethodTypes"]
+#functionsDir: ".stoplight/customFunctions"
+functions: [checkMethodTypes]
