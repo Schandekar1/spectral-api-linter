@@ -10,13 +10,20 @@ rules:
   contact-properties: false
   tag-description: false
 
-  # http-allowed-method-types:
-  #    description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
-  #    given: $.paths[*]
-  #    severity: error
-  #    then:
-  #      field: "@key"
-  #      function: "checkMethodTypes"
+  http-allowed-method-types1:
+     description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
+     given: $.paths[*]
+     severity: error
+     then:
+       field: "@key"
+       function: enumeration
+       functionOptions:
+          values:
+            - get
+            - post
+            - put
+            - delete
+            - patch
 
   http-allowed-method-types:
     description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
