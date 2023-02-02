@@ -1,7 +1,8 @@
 extends: [["spectral:oas", "all"]]
 
 functionsDir: "../../../functions"
-functions: [checkMethodTypes]
+functions: 
+  - checkMethodTypes
 
 rules:
   operation-operationId: false
@@ -40,7 +41,7 @@ rules:
      given: $.paths[*]
      severity: error
      then:
-       function: 'checkMethodTypes'
+       function: checkMethodTypes
 
   # cxone-headers-hyphenated-pascal-case:
   #   description: All `HTTP` headers MUST use `Hyphenated-Pascal-Case' notation
