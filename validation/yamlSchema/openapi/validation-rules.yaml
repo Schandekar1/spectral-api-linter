@@ -28,7 +28,7 @@ rules:
 
   info-contact-required:
     description: contact field is required in info object.
-    severity: error
+    severity: warn
     given: $.info
     then:
       field: contact
@@ -36,7 +36,7 @@ rules:
 
   info-version-required:
     description: version field is required in info object.
-    severity: error
+    severity: warn
     given: $.info
     then:
       field: version
@@ -57,7 +57,7 @@ rules:
             - delete
             - patch
 
-  options-method-exist:
+  options-method-not-allowed:
      description: OPTIONS method type not allowed.
      severity: error
      given: $.paths[*][options]

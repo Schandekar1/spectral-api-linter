@@ -1,15 +1,15 @@
-#openapi: 3.0.1
-info:
-  title: Data Extraction APIs - V1
-  description: The Data Extraction API let you extract data from CXone for external
-    reporting purposes.  For example, you can extract QM Workflow data. You must generate
-    a key in order to use this API.
-  # contact:
-  #   email: R&DApiTeam@niceincontact.com
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  #version: V11
+openapi: 3.0.1
+# info:
+#   title: Data Extraction APIs - V1
+#   description: The Data Extraction API let you extract data from CXone for external
+#     reporting purposes.  For example, you can extract QM Workflow data. You must generate
+#     a key in order to use this API.
+#   contact:
+#     email: R&DApiTeam@niceincontact.com
+#   license:
+#     name: Apache 2.0
+#     url: http://www.apache.org/licenses/LICENSE-2.0.html
+#   version: V11
 servers:
 - url: https://na1.nice-incontact.com/data-extraction/V1
   description: Production Oregon Environment (uses live data)
