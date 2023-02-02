@@ -34,11 +34,11 @@ rules:
       function: checkMethodTypes
 
   option-method-exist:
-    description: OPTION method type not allowed
+    description: OPTIONS method type not allowed
     severity: error
-    given: $.paths[*][option]
+    given: $.paths[*][options]
     then:
-      field: option
+      field: options
       function: falsy
 
   # cxone-headers-hyphenated-pascal-case:
