@@ -25,21 +25,21 @@ rules:
             - delete
             - patch
 
-  http-allowed-method-types:
-    description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
-    message: "{{error}}"
-    given: $.paths[*]
-    severity: error
-    then:
-      function: checkMethodTypes
-
   option-method-exist:
     description: OPTIONS method type not allowed
     severity: error
     given: $.paths[*][options]
     then:
-      field: options
-      function: falsy
+      - field: options
+        function: falsy
+    
+  http-allowed-method-types:
+  description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
+  message: "{{error}}"
+  given: $.paths[*]
+  severity: error
+  then:
+    function: checkMethodTypes
 
   # cxone-headers-hyphenated-pascal-case:
   #   description: All `HTTP` headers MUST use `Hyphenated-Pascal-Case' notation
