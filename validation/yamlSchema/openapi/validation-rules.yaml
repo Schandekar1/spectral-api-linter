@@ -33,6 +33,14 @@ rules:
     then:
       function: checkMethodTypes
 
+  option-method-exist:
+    description: OPTION method type not allowed
+    severity: error
+    given: $.paths[*][option]
+    then:
+      field: option
+      function: falsy
+
   # cxone-headers-hyphenated-pascal-case:
   #   description: All `HTTP` headers MUST use `Hyphenated-Pascal-Case' notation
   #   severity: error
