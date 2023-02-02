@@ -1,4 +1,4 @@
-export default input => {
+module.exports = input => {
     debugger;
     console.log(input);
     if (input && input.length>0) {
