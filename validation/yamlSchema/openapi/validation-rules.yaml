@@ -10,6 +10,38 @@ rules:
   contact-properties: false
   tag-description: false
 
+  openapi-field-required:
+    description: openapi field is required.
+    severity: error
+    given: $
+    then:
+      field: openapi
+      function: truthy
+
+  info-object-required:
+    description: Info object field is required.
+    severity: warn
+    given: $
+    then:
+      field: info
+      function: truthy
+
+  info-contact-required:
+    description: contact field is required in info object.
+    severity: error
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+
+  info-version-required:
+    description: version field is required in info object.
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+
   http-allowed-method-types:
      description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
      given: $.paths[*]
@@ -34,13 +66,7 @@ rules:
         functionOptions:
           max: 0
 
-  info-field-required:
-    description: Info field is required.
-    severity: warn
-    given: $
-    then:
-      field: info
-      function: truthy
+  
     
   # http-allowed-method-types:
   #    description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
