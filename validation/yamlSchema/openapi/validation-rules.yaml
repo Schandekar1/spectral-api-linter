@@ -66,6 +66,29 @@ rules:
         functionOptions:
           max: 0
 
+  tags-object-required:
+    description: tags object is required.
+    severity: error
+    given: $
+    then:
+      field: tags
+      function: truthy
+
+  tags-name-required:
+    description: name field is required in tags object.
+    severity: error
+    given: $.tags
+    then:
+      field: name
+      function: truthy
+  
+  tags-description-required:
+    description: description field is required in tags object.
+    severity: error
+    given: $.tags
+    then:
+      field: description
+      function: truthy
   
     
   # http-allowed-method-types:
