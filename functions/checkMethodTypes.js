@@ -1,7 +1,7 @@
 module.exports = input => {
       return [
         {
-          message: 'Value must equal hello.',
+          message: 'This is test error message from JavaScript function',
         },
       ];
   };
