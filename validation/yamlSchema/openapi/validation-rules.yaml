@@ -10,7 +10,7 @@ rules:
   contact-properties: false
   tag-description: false
 
-  http-allowed-method-types1:
+  http-allowed-method-types:
      description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
      given: $.paths[*]
      severity: error
@@ -26,7 +26,7 @@ rules:
             - patch
 
   options-method-exist:
-     description: OPTIONS method type not allowed
+     description: OPTIONS method type not allowed.
      severity: error
      given: $.paths[*][options]
      then:
@@ -34,13 +34,13 @@ rules:
         functionOptions:
           max: 0
     
-  http-allowed-method-types:
-     description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
-     message: "{{error}}"
-     given: $.paths[*]
-     severity: error
-     then:
-       function: checkMethodTypes
+  # http-allowed-method-types:
+  #    description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
+  #    message: "{{error}}"
+  #    given: $.paths[*]
+  #    severity: error
+  #    then:
+  #      function: checkMethodTypes
 
   # cxone-headers-hyphenated-pascal-case:
   #   description: All `HTTP` headers MUST use `Hyphenated-Pascal-Case' notation

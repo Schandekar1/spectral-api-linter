@@ -65,7 +65,7 @@ paths:
       - bearerAuth: []
       x-cxone-audience: company-internal
       x-cxone-api-key: 1168ae16-a6bb-4bf9-893e-3b07347a5ea3
-    post:
+    trace:
       tags:
       - Extracting Data
       summary: Prepares requested data for extraction.
