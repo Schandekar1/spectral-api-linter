@@ -8,7 +8,7 @@ rules:
   operation-operationId: false
   operation-tags: false
   contact-properties: false
-  tag-description: false
+  tag-description: true
 
   openapi-field-required:
     description: openapi field is required.
