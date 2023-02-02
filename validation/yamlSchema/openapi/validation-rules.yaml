@@ -12,7 +12,7 @@ rules:
 
   http-allowed-method-types:
      description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
-     message: "{{field}} method type not allowed"
+     message: "[OPTIONS,TRACE,CONNECT] method type not allowed"
      given: $.paths[*]
      severity: error
      then:
