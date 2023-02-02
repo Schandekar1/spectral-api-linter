@@ -12,6 +12,7 @@ rules:
 
   http-allowed-method-types:
      description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
+     message: "{{@key}} method types not allowed"
      given: $.paths[*]
      severity: error
      then:
