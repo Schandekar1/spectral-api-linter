@@ -1,4 +1,4 @@
-export const checkMethodTypes =  input => {
+export default input => {
     debugger;
     console.log(input);
     if (input && input.length>0) {
@@ -10,4 +10,4 @@ export const checkMethodTypes =  input => {
     }
   };
 
-  export default checkMethodTypes;
+  //export default checkMethodTypes;

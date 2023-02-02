@@ -1,6 +1,6 @@
 extends: [["spectral:oas", "all"]]
 
-functionsDir: "functions"
+#functionsDir: "functions"
 functions:
   - checkMethodTypes
 
@@ -12,7 +12,7 @@ rules:
 
   http-allowed-method-types:
      description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
-     message: "[OPTIONS,TRACE,CONNECT] method type not allowed"
+     #message: "[OPTIONS,TRACE,CONNECT] method type not allowed"
      given: $.paths[*]
      severity: error
      then:
@@ -35,13 +35,13 @@ rules:
         functionOptions:
           max: 0
     
-  # http-allowed-method-types:
-  #    description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
-  #    message: "{{error}}"
-  #    given: $.paths[*]
-  #    severity: error
-  #    then:
-  #      function: checkMethodTypes
+  http-allowed-method-types1:
+     description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
+     message: "{{error}}"
+     given: $.paths[*]
+     severity: error
+     then:
+       function: checkMethodTypes
 
   # cxone-headers-hyphenated-pascal-case:
   #   description: All `HTTP` headers MUST use `Hyphenated-Pascal-Case' notation
