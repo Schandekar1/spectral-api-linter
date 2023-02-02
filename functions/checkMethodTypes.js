@@ -1,6 +1,4 @@
 module.exports = input => {
-    debugger;
-    console.log(input);
     if (input && input.length>0) {
       return [
         {
@@ -9,5 +7,3 @@ module.exports = input => {
       ];
     }
   };
-
-  //export default checkMethodTypes;
