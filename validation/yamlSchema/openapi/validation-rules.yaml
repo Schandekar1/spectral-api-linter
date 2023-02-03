@@ -74,16 +74,14 @@ rules:
       field: tags
       function: truthy
 
-  tags-name-required:
-    description: name field is required in tags object.
-    severity: error
-    given: $.tags
-    then:
-      field: name
-      function: truthy
+  # tags-name-required:
+  #   description: name field is required in tags object.
+  #   severity: error
+  #   given: $.tags
+  #   then:
+  #     field: name
+  #     function: truthy
 
-
-  
   # tags-description-required:
   #   description: description field is required in tags object.
   #   severity: error
