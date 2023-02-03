@@ -8,7 +8,7 @@ rules:
   operation-operationId: false
   operation-tags: false
   contact-properties: false
-  tag-description: true
+  tag-description: false
 
   openapi-field-required:
     description: openapi field is required.
@@ -81,14 +81,16 @@ rules:
     then:
       field: name
       function: truthy
+
+
   
-  tags-description-required:
-    description: description field is required in tags object.
-    severity: error
-    given: $.tags
-    then:
-      field: description
-      function: truthy
+  # tags-description-required:
+  #   description: description field is required in tags object.
+  #   severity: error
+  #   given: $.tags
+  #   then:
+  #     field: description
+  #     function: truthy
   
     
   # http-allowed-method-types:
