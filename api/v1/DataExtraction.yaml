@@ -37,6 +37,7 @@ servers:
   variables: {}
 tags:
 - name: Extracting Data
+  description: dfksjdfhs
 - name: Internal Data Extraction APIs
 - name: UNPUBLISHED
 paths:
