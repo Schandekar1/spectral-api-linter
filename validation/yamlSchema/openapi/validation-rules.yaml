@@ -17,7 +17,8 @@ rules:
     then:
       field: openapi
       function: truthy
-
+      
+  #Rule to validate Info object required in api document
   info-object-required:
     description: Info object field is required.
     severity: warn
@@ -42,6 +43,7 @@ rules:
       field: version
       function: truthy
 
+#Rule to allow only get, post, put, delete, patch types of method
   http-allowed-method-types:
      description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
      given: $.paths[*]
