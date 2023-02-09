@@ -9,7 +9,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  #version: V11
+  version: V11
 servers:
 - url: https://na1.nice-incontact.com/data-extraction/V1
   description: Production Oregon Environment (uses live data)
@@ -42,7 +42,7 @@ tags:
 - name: UNPUBLISHED
 paths:
   /jobs:
-    options:
+    get:
       tags:
       - Extracting Data
       summary: Gets status for all jobs.
