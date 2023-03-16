@@ -1,0 +1,131 @@
+openapi: 3.0.1
+info:
+  description: >-
+      Business Data fields are custom fields that can be associated with the call's
+      metadata. these fields are used for enriching call interactions with data
+      that is coming from external sources, mostly from CRM systems.<br> 
+      The API offers the following functionality:<br>
+      
+      Limitations: <br>
+      1. The number of fields that can be set is limited<br>
+      - Number of "String" type is limited to 35<br>
+      - Number of "Numeric" type is limited to 10<br>
+      - Number of "Boolean" type is limited to 5<br>
+      2. Display-name of business data can be changed but must be unique<br> 
+               
+      
+      
+  version: V2
+  title: Business Data Fields Management APIsdfdsf
+  contact:
+    email: sachin@niceincontact.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
+paths:
+  /business-data-manager/business-data/contact/{contactId}:
+    put:
+      tags:
+        - Update Business Data for Closed Interactions
+      summary: For all the segments available for the given acdContactId, replace/update the business data with the user provided business data
+      description: Update Business Data for Closed Interactions
+      operationId: updateBusinessDataFieldForClosedInteraction
+      parameters:
+        - name: contactId
+          in: path
+          description: acdContactId for the segment
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Dynamic Business Data key value pairs
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+              example: [{"BDNAME1":"BDVAL1"},{"BDNAME2":1234.12},{"BDNAME3":true}]
+        required: true
+      responses:
+        '204':
+          description: The server has successfully fulfilled the request and that there is no additional content to send in the response payload body.
+        '400':
+          description: 400 Invalid Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400ApiResponse'
+        '401':
+          description: 401 Authentication failure
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401ApiResponse'
+        '403':
+          description: 403 Permissions Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error403ApiResponse'
+        '500':
+          description: 500 Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500ApiResponse'
+components:
+  schemas:
+    Error400ApiResponse:
+      type: object
+      properties:
+        internalCode:
+          type: string
+          example: 8100
+        message:
+          type: string
+          example: Invalid request
+    Error401ApiResponse:
+      type: object
+      properties:
+        internalCode:
+          type: string
+          example: 8300
+        message:
+          type: string
+          example: Requested change is not permited
+    Error403ApiResponse:
+      type: object
+      properties:
+        internalCode:
+          type: string
+          example: 8500
+        message:
+          type: string
+          example: User has no privileges to perform this operation
+    Error500ApiResponse:
+      type: object
+      properties:
+        internalCode:
+          type: string
+          example: 8400
+        message:
+          type: string
+          example: Internal server error
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
+servers:
+  - url: 'https://na1.nice-incontact.com'
+    description: Production Environment (uses live data)
+  - url: 'https://na1.test.nice-incontact.com'
+    description: Test Environment
+  - url: 'https://na1.dev.nice-incontact.com'
+    description: Dev Environment
+  - url: 'https://na1.staging.nice-incontact.com'
+    description: Staging Environment
