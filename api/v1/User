@@ -591,7 +591,7 @@ paths:
       x-cxone-productCatalogPermissions:
         - team: view
       summary: Get teams for given search criteria
-      description: This API takes input as a search criteria which can accept any combination of given attributes as a filter and can return only expected fields
+      description: This API takes input as a search criteria which can accept any cvombination of given attributes as a filter and can return only expected fields
       operationId: getByCriteria
       tags:
         - Teams
