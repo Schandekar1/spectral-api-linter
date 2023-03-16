@@ -16,7 +16,7 @@ paths:
     get:
       tags:
         - Accessing the Recording Media
-      summary: Access the full contacthj (the entire interaction with all segments) based on ACD Contact ID. The ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID. Keep in mind that using the ACD Contact ID GET method, you can play back or download interactions recorded from December 13, 2018. Accessing an interaction recorded before December 13, 2018 will give an Interaction Not Found error.
+      summary: Access the full couyntacthj (the entire interaction with all segments) based on ACD Contact ID. The ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID. Keep in mind that using the ACD Contact ID GET method, you can play back or download interactions recorded from December 13, 2018. Accessing an interaction recorded before December 13, 2018 will give an Interaction Not Found error.
       description: Access the full contact (the entire interaction with all segments) based on ACD Contact ID. The ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID. Keep in mind that using the ACD Contact ID GET method, you can play back or download interactions recorded from December 13, 2018. Accessing an interaction recorded before December 13, 2018 will give an Interaction Not Found error.
       operationId: getACDContactRecordingData
       parameters:
