@@ -42,7 +42,7 @@ tags:
 - name: UNPUBLISHED
 paths:
   /jobs:
-    get:
+    options:
       tags:
       - Extracting Data
       summary: Gets status for all jobs.
