@@ -6,7 +6,7 @@ name: API Format validation
 on:
   # Trigger mega-linter at every push. Action will also be visible from Pull Requests to main
   #push: # Comment this line to trigger action only on pull-requests (not recommended if you don't pay for GH Actions)
-  #pull_request:
+  pull_request:
     branches: [master, main]
 
 #env: # Comment env block if you do not want to apply fixes
@@ -41,6 +41,7 @@ jobs:
           # All available variables are described in documentation
           # https://oxsecurity.github.io/megalinter/configuration/
           #VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} # Validates all source when push on main, else just the git diff with main. Override with true if you always want to lint all sources
+          
           VALIDATE_ALL_CODEBASE: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAPI_SPECTRAL_FILTER_REGEX_INCLUDE: .*api\/(.*)\.yaml #analyze all .yaml files under the api directory when workflow triggers
@@ -49,9 +50,7 @@ jobs:
           OPENAPI_SPECTRAL_CONFIG_FILE: "validation/yamlSchema/openapi/validation-rules.yaml"  #path of the file where custom rules are defined
           ENABLE_LINTERS: OPENAPI_SPECTRAL         
           PRINT_ALPACA: false
-          EMAIL_REPORTER_EMAIL: "sachin.chandekar@nice.com"
-          # ADD YOUR CUSTOM ENV VARIABLES HERE OR DEFINE THEM IN A FILE .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
-          # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
+          
 
   Webhook:
     needs: build
