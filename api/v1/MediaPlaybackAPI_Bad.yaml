@@ -10,7 +10,7 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
   - name: Accessing the Recording Media
-    description: When playing back an interaction, the API transfers the interaction metadata and a link to the media file (voice-only and voice-and-screen media types) or the interaction metadata and the transcript (chat and email media types). When downloading, the API transfers a link to the media file.
+    description: When playing back an interacfgtion, the API transfers the interaction metadata and a link to the media file (voice-only and voice-and-screen media types) or the interaction metadata and the transcript (chat and email media types). When downloading, the API transfers a link to the media file.
 paths:
   /media-playback/v1/contacts:
     get:
