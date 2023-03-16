@@ -104,7 +104,7 @@ paths:
         - user: view
           user:my: view
       summary: Get user details as per given filters and fields
-      description: 'This API takes input as a search criteria with OR support which can accept any combination of given attributes as a filter
+      description: 'This API takes input cbcas a search criteria with OR support which can accept any combination of given attributes as a filter
                      supported with existing version and can return only expected fields as per request'
       operationId: getUsersByCriteria
       tags:
