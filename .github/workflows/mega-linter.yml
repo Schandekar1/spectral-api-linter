@@ -9,10 +9,10 @@ on:
   #pull_request:
     branches: [master, main]
 
-#env: # Comment env block if you do not want to apply fixes
+env: # Comment env block if you do not want to apply fixes
   # Apply linter fixes configuration
-  #APPLY_FIXES: all # When active, APPLY_FIXES must also be defined as environment variable (in github/workflows/mega-linter.yml or other CI tool)
-  #APPLY_FIXES_EVENT: push # Decide which event triggers application of fixes in a commit or a PR (pull_request, push, all)
+  APPLY_FIXES: all # When active, APPLY_FIXES must also be defined as environment variable (in github/workflows/mega-linter.yml or other CI tool)
+  APPLY_FIXES_EVENT: push # Decide which event triggers application of fixes in a commit or a PR (pull_request, push, all)
   #APPLY_FIXES_MODE: commit # If APPLY_FIXES is used, defines if the fixes are directly committed (commit) or posted in a PR (pull_request)
 
 concurrency:
@@ -43,7 +43,6 @@ jobs:
           # VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} # Validates all source when push on main, else just the git diff with main. Override with true if you always want to lint all sources
           VALIDATE_ALL_CODEBASE: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
           OPENAPI_SPECTRAL_FILTER_REGEX_INCLUDE: .*api\/(.*)\.yaml #analyze all .yaml files under the api directory when workflow triggers
           OPENAPI_SPECTRAL_CLI_LINT_MODE: file
           OPENAPI_SPECTRAL_FILE_EXTENSIONS: ".yaml"
@@ -53,9 +52,6 @@ jobs:
           # ADD YOUR CUSTOM ENV VARIABLES HERE OR DEFINE THEM IN A FILE .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
           # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
 
-    trigger:
-        event:
-          - push
 
   Webhook:
     needs: build
