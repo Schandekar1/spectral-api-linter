@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Data Extraction APIs - V1
-  description: The Data Extraction API let you extract data from CXone for external
+  description: The Data Extraction API let you extract data from CXone for externalcvbvc
     reporting purposes.  For example, you can extract QM Workflow data. You must generate
     a key in order to use this API.
   contact:
