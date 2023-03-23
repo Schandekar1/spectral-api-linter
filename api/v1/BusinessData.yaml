@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   description: >-
       Business Data fields are custom fields that can be associated with the call'sr
-      metadata. these fields are used for enriching call interactions with data
+      metadata. these fields are used for enriching ccvcall interactions with data
       that is coming from external sources, mostly from CRM systems.<br> 
       The API offers the following functionality:<br>
       
