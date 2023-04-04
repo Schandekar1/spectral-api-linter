@@ -93,12 +93,12 @@ rules:
   #     function: truthy
   
     
-  # http-allowed-method-types:
-  #    description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
-  #    message: "{{error}}"
-  #    given: $.paths[*]
-  #    severity: error
-  #    then:
-  #      function: checkMethodTypes
+  url-structure-format:
+    description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
+    message: "{{error}}"
+    given: $
+    severity: error
+    then:
+      function: checkMethodTypes
 
   
