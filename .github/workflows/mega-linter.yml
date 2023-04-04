@@ -43,7 +43,7 @@ jobs:
           #VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} # Validates all source when push on main, else just the git diff with main. Override with true if you always want to lint all sources
           
           VALIDATE_ALL_CODEBASE: false
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
           OPENAPI_SPECTRAL_FILTER_REGEX_INCLUDE: .*api\/(.*)\.yaml #analyze all .yaml files under the api directory when workflow triggers
           OPENAPI_SPECTRAL_CLI_LINT_MODE: file
           OPENAPI_SPECTRAL_FILE_EXTENSIONS: ".yaml"
