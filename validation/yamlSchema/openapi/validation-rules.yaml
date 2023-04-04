@@ -4,11 +4,17 @@ functionsDir: "../../../functions"
 functions: 
   - checkMethodTypes
 
+parserOptions:
+  duplicateKeys: warn # error is the default value
+  incompatibleValues: off # error is the default value
+
 rules:
   operation-operationId: false
   operation-tags: false
   contact-properties: false
   tag-description: false
+  oas3-valid-media-example: warn
+  oas3-valid-schema-example: warn
 
   openapi-field-required:
     description: openapi field is required.
@@ -43,7 +49,7 @@ rules:
       field: version
       function: truthy
 
-#Rule to allow only get, post, put, delete, patch types of method
+  #Rule to allow only get, post, put, delete, patch types of method
   http-allowed-method-types:
      description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
      given: $.paths[*]
@@ -94,7 +100,7 @@ rules:
   
     
   url-structure-format:
-    description: Only [GET,POST,PUT,DELETE,PATCH] method types allowed.
+    description: Service URL should follow https://<host name>/<service name>/<service version>/<resource name> format.
     message: "{{error}}"
     given: $
     severity: error
