@@ -3,6 +3,7 @@ extends: [["spectral:oas", "all"]]
 functionsDir: "../../../functions"
 functions: 
   - uri-format-validation
+  - uri-case-validation
 
 parserOptions:
   duplicateKeys: warn # error is the default value
@@ -82,6 +83,22 @@ rules:
       field: tags
       function: truthy
 
+  uri-format-validation:
+    description: Complete URI for all API calls must follow the format https://<host name>/<service name>/<service version>/<resource name>
+    message: "{{error}}"
+    given: $
+    severity: error
+    then:
+      function: uri-format-validation
+
+  uri-case-validation:
+    description: Complete URI for all API calls must follow the format https://<host name>/<service name>/<service version>/<resource name>
+    message: "{{error}}"
+    given: $
+    severity: warn
+    then:
+      function: uri-case-validation  
+
   # tags-name-required:
   #   description: name field is required in tags object.
   #   severity: error
@@ -99,20 +116,6 @@ rules:
   #     function: truthy
   
     
-  uri-format-validation:
-    description: Complete URI for all API calls must follow the format https://<host name>/<service name>/<service version>/<resource name>
-    message: "{{error}}"
-    given: $
-    severity: error
-    then:
-      function: uri-format-validation
-
-  uri-case-validation:
-    description: Complete URI for all API calls must follow the format https://<host name>/<service name>/<service version>/<resource name>
-    message: "{{error}}"
-    given: $
-    severity: warn
-    then:
-      function: uri-case-validation   
+   
 
   
