@@ -2,7 +2,7 @@ extends: [["spectral:oas", "all"]]
 
 functionsDir: "../../../functions"
 functions: 
-  - checkMethodTypes
+  - uri-format-validation
 
 parserOptions:
   duplicateKeys: warn # error is the default value
@@ -99,12 +99,20 @@ rules:
   #     function: truthy
   
     
-  url-structure-format:
-    description: Service URL should follow https://<host name>/<service name>/<service version>/<resource name> format.
+  uri-format-validation:
+    description: Complete URI for all API calls must follow the format https://<host name>/<service name>/<service version>/<resource name>
     message: "{{error}}"
     given: $
     severity: error
     then:
-      function: checkMethodTypes
+      function: uri-format-validation
+
+  uri-case-validation:
+    description: Complete URI for all API calls must follow the format https://<host name>/<service name>/<service version>/<resource name>
+    message: "{{error}}"
+    given: $
+    severity: warn
+    then:
+      function: uri-case-validation   
 
   

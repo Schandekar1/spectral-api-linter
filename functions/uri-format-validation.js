@@ -17,10 +17,9 @@ module.exports = input => {
     const urlRegEx=/(https?):\/\/([a-z0-9-]+\.)+[a-z]+(:[0-9]+)?\/[a-zA-Z0-9_-]+\/V[0-9]+\/[a-zA-Z0-9_-]+.*$/i
     input.servers.forEach(element => {
       for (const [key, value] of Object.entries(input.paths)) {
-        console.log(`${element.url}${key}`);
         if(urlRegEx.test(`${element.url}${key}`)===false){
           errors= [...errors, {
-            message: `API Url structure ${element.url}${key} does not follow the standard format`,
+            message: `URI ${element.url}${key} does not follow the standard format https://<host name>/<service name>/<service version>/<resource name>`,
           }]
         }
       }
