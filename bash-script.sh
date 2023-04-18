@@ -1,4 +1,4 @@
 
 #!/bin/bash
-sudo yum install -y graphviz
-./eorPublish.sh -g
+sudo apt install -y graphviz
+eorPublish.sh -g
