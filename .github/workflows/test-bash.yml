@@ -10,6 +10,5 @@ jobs:
     steps:
       - name: Run bash script
         run: sudo apt-get update
-             sudo apt-get install bash
-             bash-scrip.sh
+             
         shell: bash
