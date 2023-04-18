@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run bash script
-        run: sudo eorPublish.sh -g
+        run: sudo bash-scrip.sh
         shell: bash
