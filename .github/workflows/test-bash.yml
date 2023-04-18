@@ -6,6 +6,7 @@ on:
 
 jobs:
   example-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Run bash script
         run: ./bash-script.sh
