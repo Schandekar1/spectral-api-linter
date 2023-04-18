@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run bash script
-        run: echo "$PWD"
+        run: chmod +x /home/runner/work/spectral-api-linter/spectral-api-linter/bash-script.sh
              
         shell: bash
