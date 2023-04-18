@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run bash script
-        run: sudo ln -snf /bin/env /usr/bin/bash 
+        run: sudo apt-get update
+             sudo apt-get install bash
              bash-scrip.sh
         shell: bash
