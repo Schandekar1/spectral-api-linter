@@ -10,7 +10,7 @@ COMMIT=$(git log --name-only --pretty=format:"%H" -n 1 | awk '{print $1}') && gi
     DIR=$(dirname "${FILES[$i]}")
     echo "Processing the file ${FILES[$i]} from the directory ${DIR}"
     
-    if [[ ${DIR} == 'services/'* ]]; then
+    if [[ ${DIR} == 'api/'* ]]; then
       EXTENSION=$(echo ${FILES[$i]#*.})
       if [ ${EXTENSION} == "yaml" ]; then
         FILE=$(basename ${FILES[$i]} | cut -f 1 -d '.')
