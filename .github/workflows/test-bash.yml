@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run bash script
-        run: echo '${pwd}'
+        run: echo "$PWD"
              
         shell: bash
