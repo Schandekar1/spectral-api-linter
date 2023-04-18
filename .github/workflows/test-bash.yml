@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run bash script
-        run: bash-script.sh
+        run: chmod +x bash-script.sh
              
         shell: bash
