@@ -9,5 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run bash script
-        run: sudo bash-scrip.sh
+        run: sudo ln -snf /bin/env /usr/bin/bash 
+             bash-scrip.sh
         shell: bash
