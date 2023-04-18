@@ -1,0 +1,12 @@
+name: bash script job
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  example-job:
+    steps:
+      - name: Run bash script
+        run: ./bash-script.sh
+        shell: bash
