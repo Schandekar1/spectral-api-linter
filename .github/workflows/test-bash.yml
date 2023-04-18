@@ -1,14 +1,12 @@
-name: bash script job
+name: Execute Bash Script
 
-on:
-  push:
-    branches: [main]
+on: [push]
 
 jobs:
-  example-job:
+  run-script:
     runs-on: ubuntu-latest
     steps:
-      - name: Run bash script
-        run: chmod +x /home/runner/work/spectral-api-linter/spectral-api-linter/bash-script.sh
-             
-        shell: bash
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Execute script
+      run: bash bash-script.sh
