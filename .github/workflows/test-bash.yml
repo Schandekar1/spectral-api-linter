@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run bash script
-        run: chmod +x ./bash-script.sh
+        run: echo pwd
              
         shell: bash
