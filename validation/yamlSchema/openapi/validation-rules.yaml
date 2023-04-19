@@ -97,7 +97,7 @@ rules:
     given: $
     severity: warn
     then:
-      function: uri-case-validation  
+      function: uri-case-validation
 
   # tags-name-required:
   #   description: name field is required in tags object.
