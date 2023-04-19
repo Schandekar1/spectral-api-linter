@@ -1,13 +1,13 @@
 #!/usr/bin/bash
 
-#COMMIT=$(git log --name-only --pretty=oneline --full-index HEAD^^..HEAD | grep -vE '^[0-9a-f]{40} ' | sort | uniq)
-COMMIT=$(git log --name-only --pretty=format:"%H" -n 1 | awk '{print $1}') && git diff-tree --no-commit-id --name-only -r $COMMIT | sort | uniq
+COMMIT=$(git log --name-only --pretty=oneline --full-index HEAD^^..HEAD | grep -vE '^[0-9a-f]{40} ' | sort | uniq)
+#COMMIT=$(git log --name-only --pretty=format:"%H" -n 1 | awk '{print $1}') && git diff-tree --no-commit-id --name-only -r $COMMIT | sort | uniq
 
-echo "Commit object : ${COMMIT}"
+echo "Commit object :" echo $COMMIT
 
   FILES=($COMMIT)
   
-  echo "Files : ${FILES}"
+  echo "Files :" echo $FILES
   
   len=${#FILES[@]}
 
