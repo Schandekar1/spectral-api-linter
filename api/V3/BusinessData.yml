@@ -6,7 +6,7 @@ info:
     data that is coming from external sources, mostly from CRM systems.<br>  The
     API offers the following functionality:<br> 1. Set new business data fields
     (see limitations)<br> 2. Activate or Deactivate business data field<br> 3.
-    Modify the business data display-name (see limitations)<br> 4. Query the
+    Modify the business data diZXsplay-name (see limitations)<br> 4. Query the
     number of available fields<br><br>
   version: V3
   title: Business Data Fields Management API -3
