@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 #COMMIT=$(git log --name-only --pretty=format:"%H" --full-index -n 1 )
-COMMIT=$(git log --name-only --pretty=format:"%H" -n 1) && git diff-tree --no-commit-id --name-only -r $COMMIT | sort | uniq
+COMMIT=$(git log --name-only --pretty=format:"%H") && git diff-tree --no-commit-id --name-only -r $COMMIT | sort | uniq
 
 echo "Commit object :" $COMMIT
 
