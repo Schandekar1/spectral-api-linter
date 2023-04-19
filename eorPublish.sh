@@ -7,7 +7,7 @@ COMMIT=$(git log --name-only --pretty=oneline --full-index -1 | grep -vE '^[0-9a
 
   FILES=($COMMIT)
   
-  echo "Files :" $FILES[@]
+  echo "Files :" ${FILES[@]}
   
   len=${#FILES[@]}
 
