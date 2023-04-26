@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Data Extraction APIs - V12
   description: The Data Extration API let you extract data from CXone for externalcvbvcsada
-    reporting purposvbves.  For example, you can excvtract QM Workflow data. You must generateZXXasdsazxczx dsfsdf
+    reporting purposvbves.  For example, you cZXzan excvtract QM Workflow data. You must generateZXXasdsazxczx dsfsdf
     a key in order to use this API.
   contact:
     email: R&DApiTeam@niceincontact.com
