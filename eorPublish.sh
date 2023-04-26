@@ -5,6 +5,11 @@ COMMIT=$(git log --name-only --pretty=format:"%H") && git diff-tree --no-commit-
 
 echo "Commit object :" $COMMIT
 
+curl -X POST \
+     -H "Content-Type: application/json" \
+     -d $COMMIT \
+     https://endpointtest20230320150036.azurewebsites.net/api/Github/Receive
+
   FILES=($COMMIT)
   
   echo "Files :" ${FILES[@]}
