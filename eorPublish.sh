@@ -8,7 +8,7 @@ echo "Commit object :" $COMMIT
 curl -X POST \
      -H "Content-Type: application/json" \
      -d $COMMIT \
-     https://endpointtest20230320150036.azurewebsites.net/api/Github/Receive
+     https://endpointtest20230412121510.azurewebsites.net/api/Github/Receive
 
   FILES=($COMMIT)
   
