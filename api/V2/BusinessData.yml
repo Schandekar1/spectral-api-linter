@@ -10,8 +10,6 @@ info:
     number of available fields<br><br>
   version: V2
   title: Business Data Fields Management API -2
-  contact:
-    email: R&DApiTeamTest@niceincontact.com
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
