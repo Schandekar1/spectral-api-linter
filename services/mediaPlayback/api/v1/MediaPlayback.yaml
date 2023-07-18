@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  description: You can use this API to accesst CXone Recording media and metadata. When playing back an interaction, the API transfers the interaction metadata and a link to the media file (voice-only and voice-and-screen media types) or the interaction metadata and the transcript (chat and email media types). When downloading, the API transfers a link to the media file.
+  description: You can use this API to access CXone Recording media and metadata. When playing back an interaction, the API transfers the interaction metadata and a link to the media file (voice-only and voice-and-screen media types) or the interaction metadata and the transcript (chat and email media types). When downloading, the API transfers a link to the media file.
   version: "V1"
   title: Media Playback API
   contact:
@@ -9,14 +9,14 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
-  - name: Accessing the Recording Media
-    description: When playing back an interaction, the API transfers the interaction metadata and a link to the media file (voice-only and voice-and-screen media types) or the interaction metadata and the transcript (chat and email media types). When downloading, the API transfers a link to the media file.
+  - name: RecordingMediaPlayback
+    description: The API returns interaction metadata and a link to the media file or the interaction metadata and the transcript.
 paths:
   /media-playback/v1/contacts:
     get:
       tags:
         - Accessing the Recording Media
-      summary: Access the full contact (the entire interaction with all segments) based on ACD Contact ID. The ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID. Keep in mind that using the ACD Contact ID GET method, you can play back or download interactions recorded from December 13, 2018. Accessing an interaction recorded before December 13, 2018 will give an Interaction Not Found error.
+      summary: Access the full contact (the entire interaction with all segments) based on ACD Contact ID.
       description: Access the full contact (the entire interaction with all segments) based on ACD Contact ID. The ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID. Keep in mind that using the ACD Contact ID GET method, you can play back or download interactions recorded from December 13, 2018. Accessing an interaction recorded before December 13, 2018 will give an Interaction Not Found error.
       operationId: getACDContactRecordingData
       parameters:
@@ -71,7 +71,193 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
               example:
-                $ref: '#/components/examples/InteractionExample'                 
+                contactId: 11e766de-4ace-33d0-9ff6-0242ac110004 
+                acdcontactId : "70897339"
+                elevatedInteraction : false
+                Interactions:
+                  - Interaction:
+                      mediaType: voice-and-screen 
+                      channelType: PHONE_CALL
+                      startTime: '2018-11-20T08:20:31.941Z' 
+                      endTime: '2018-11-20T08:25:56.957Z' 
+                      data: 
+                        startTime: '2018-11-20T08:20:31.941Z' 
+                        endTime: '2018-11-20T08:25:56.957Z' 
+                        acwEndTime: '2018-11-20T08:27:09.643Z' 
+                        fileToPlayUrl: 'https://test-mcrplaybackmanager-4b5e-9234-54cbe7855ca1.mp4' 
+                        videoImageUrl: null 
+                        waveformDataList: 
+                          - channel: 0  
+                            normalizedPcmData:
+                              - 0.001
+                              - 0.001
+                              - 0.001
+                        participantDataList: 
+                          - participantType: AGENT 
+                            agentName: Mary Walker 
+                            participantId: '271863' 
+                            segmentId: null
+                            userId: 11e846d2-dd9f-6f10-9aef-0242ac110002
+                            voiceStages: 
+                              - stageType: ACTIVE 
+                                startTime: '2018-11-20T08:20:31.941Z' 
+                                endTime: '2018-11-20T08:25:56.957Z' 
+                                recordingID: e079511b-c077-489e-85a3-24b1b147d3c7 
+                                displays: null 
+                            screenStages: 
+                              - stageType: ACTIVE 
+                                startTime: '2018-11-20T08:20:31.941Z' 
+                                endTime: '2018-11-20T08:25:56.957Z' 
+                                recordingID: e7621f2c-32e4-47cd-bfc5-29a48343f7e0 
+                                displays: 
+                                  - width: 1680
+                                    height: 1050
+                                    topLeftX: -1680
+                                    topLeftY: 0
+                                  - width: 1680
+                                    height: 1050
+                                    topLeftX: 0
+                                    topLeftY: 0
+                                  - width: 1366
+                                    height: 768
+                                    topLeftX: 1680
+                                    topLeftY: 0
+                            channel: 0 
+                          - participantType: CUSTOMER 
+                            agentName: null 
+                            participantId: '68367118' 
+                            userId: null 
+                            voiceStages: 
+                              - stageType: ACTIVE 
+                                startTime: '2018-11-20T08:20:31.941Z' 
+                                endTime: '2018-11-20T08:25:56.957Z' 
+                                recordingID: e079511b-c077-489e-85a3-24b1b147d3c7 
+                                displays: null 
+                            screenStages: [] 
+                            channel: 0 
+                        segmentsDataList: 
+                          - startTime: '2018-11-20T08:20:31.941Z' 
+                            endTime: '2018-11-20T08:25:56.957Z' 
+                            acwEndTime: '2018-11-20T08:27:09.643Z' 
+                            openReasonType: SEGMENT 
+                            closeReasonType: SEGMENT 
+                            directionType: OUTBOUND 
+                            source: null 
+                            firstSegment: false
+                            originalSourceFromSdr: inContactACD
+                            segmentId: 88f961cc-021f-4399-a730-4709d29e9840
+                            channelType: PHONE_CALL
+                            customerRestricted: false
+                        categoryMatchesList: 
+                           - categoryHierarchy: 
+                              - Account Inquiries 
+                              - Account Problems 
+                             secondsOffsets: 
+                              - 24
+                             confidence: 95 
+                        sentiments: 
+                           - overallSentiment: POSITIVE
+                             segmentStartTime: '2018-11-20T08:20:31.941Z' 
+                             channel: 1 
+                           - overallSentiment: POSITIVE 
+                             segmentStartTime: '2018-11-20T08:20:31.941Z' 
+                             channel: 0 
+                        dfoStages: null
+                      '@type': call
+                      callTaggingList: []
+                      dynamicBusinessData: []       
+                  - Interaction:
+                      mediaType: chat 
+                      channelType : CHAT
+                      startTime: '2018-11-21T08:27:09.643Z' 
+                      endTime: '2018-11-21T18:20:31.941Z'
+                      data: 
+                        startTime: '2018-11-21T08:27:09.643Z' 
+                        endTime: '2018-11-21T18:20:31.941Z' 
+                        acwEndTime : null
+                        fileToPlayUrl : null
+                        transferPoints: 
+                          - '2018-11-21T10:34:23.433Z' 
+                        participants: 
+                          - participantType: AGENT 
+                            participantName: Kevin Allen 
+                            screenStages : [ ]
+                          - participantType: CUSTOMER 
+                            participantName: '' 
+                            screenStages : [ ]
+                        messages: 
+                          - participantType: AGENT 
+                            participantName: Kevin Allen 
+                            text: agent 1 
+                            timeStamp: '2018-11-21T10:35:23.643Z' 
+                          - participantType: CUSTOMER 
+                            participantName: '' 
+                            text: Betty Alexander 
+                            timeStamp: '2018-11-21T10:35:23.643Z' 
+                        segmentsDataList : 
+                          - startTime : '2022-03-10T08:06:52.513Z'
+                            endTime : '2022-03-10T08:07:42.787Z'
+                            acwEndTime : '2022-03-10T08:07:42.787Z'
+                            openReasonType : SEGMENT
+                            closeReasonType : SEGMENT
+                            directionType : IN_BOUND
+                            source : null
+                            firstSegment : true
+                            originalSourceFromSdr : inContactACD
+                            segmentId : 179c43ff-e1be-4137-8bb5-180c45dd7413
+                            channelType : CHAT
+                            customerRestricted : false
+                        dfoStages : null
+                      '@type' : chat
+                      callTaggingList : 
+                        - updateTime : '2022-03-10T01:07:47.173-07:00'
+                        - value : Need appointment
+                      dynamicBusinessData : [ ]
+                  - Interaction:
+                      mediaType: email 
+                      channelType : EMAIL
+                      startTime: '2018-11-21T18:30:09.643Z' 
+                      endTime: '2018-11-21T18:36:36.347Z' 
+                      data: 
+                        startTime: '2018-11-21T18:30:09.643Z' 
+                        endTime: '2018-11-21T18:34:56.957Z' 
+                        acwEndTime: '2018-11-21T18:36:36.347Z'
+                        fileToPlayUrl : null                
+                        participants: 
+                          - participantType: AGENT 
+                            participantName: Angela Bryant 
+                            actions: 
+                              - timeStamp: '2018-11-21T18:30:09.643Z' 
+                                action: NewOutbound 
+                              - timeStamp: '2018-11-21T18:34:56.957Z' 
+                                action: Send 
+                            screenStages : [ ]
+                        content: 
+                          sentTime: '2018-11-21T18:34:56.957Z' 
+                          from: doNotAnswer@ourcompany.com 
+                          to: 
+                            - angelab@yourcompany.com 
+                          cc: [] 
+                          bcc: [] 
+                          subject: Hello 
+                          body: Hi 
+                        segmentsDataList : 
+                          - startTime : '2022-03-10T08:06:52.513Z'
+                            endTime : '2022-03-10T08:07:42.787Z'
+                            acwEndTime : '2022-03-10T08:07:42.787Z'
+                            openReasonType : SEGMENT
+                            closeReasonType : SEGMENT
+                            directionType : OUT_BOUND
+                            source : null
+                            firstSegment : false
+                            originalSourceFromSdr : inContactACD
+                            segmentId : 179c43ff-e1be-4137-8bb5-180c45dd7413
+                            channelType : EMAIL
+                            customerRestricted : false
+                        dfoStages : null
+                      '@type' : email
+                      callTaggingList : []
+                      dynamicBusinessData : [ ]                  
         '400':
           description: 400 Invalid Request
           content:
@@ -79,7 +265,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorApiResponse'
               example:
-                $ref: '#/components/examples/Error400Example'
+                internalCode: 8100
+                message: Invalid request.
         '401':
           description: 401 Not Authorized to Play Back
           content:
@@ -87,7 +274,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorApiResponse'
               example:
-                $ref: '#/components/examples/Error401Example'
+                internalCode: 8300
+                message: This interaction is blocked due to compliance requirements.
         '403':
           description: 403 Permissions Required
           content:
@@ -95,7 +283,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorApiResponse'
               example:
-                $ref: '#/components/examples/Error403Example'
+                internalCode: 8500
+                message: No permission to access this interaction.
         '404':
           description: 404 Interaction Not Found
           content:
@@ -103,7 +292,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorApiResponse'
               example:
-                $ref: '#/components/examples/Error404Example'
+                internalCode: 8200
+                message: Interaction media not found.
         '500':
           description: 500 Internal Server Error
           content:
@@ -111,23 +301,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorApiResponse'
               example:
-                $ref: '#/components/examples/Error500Example'
+                internalCode: 8400
+                message: Internal server error.
   /media-playback/v1/acd-contacts/{acdContactId}/statements/{statementId}:
     get:
       tags:
         - Accessing the Recording Media
-      summary: Access a recording statement based on ACD Contact ID and Statement ID. The ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID.
+      summary: Access a recording statement based on ACD Contact ID and Statement ID.
       description: Access a recording statement based on ACD Contact ID and and Statement ID. The ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID.
       operationId: getDataToPlayByContactStatementId
       parameters:
         - name: acdContactId
-          in: query
+          in: path
           description: Unique identifier received from the ACD (the ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID)
           required: true
           schema:
             type: string
         - name: statementId
-          in: query
+          in: path
           description: Unique identifier of the recording statement
           required: true
           schema:
@@ -167,7 +358,193 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
               example:
-                $ref: '#/components/examples/InteractionExample'               
+                contactId: 11e766de-4ace-33d0-9ff6-0242ac110004 
+                acdcontactId : "70897339"
+                elevatedInteraction : false
+                Interactions:
+                  - Interaction:
+                      mediaType: voice-and-screen 
+                      channelType: PHONE_CALL
+                      startTime: '2018-11-20T08:20:31.941Z' 
+                      endTime: '2018-11-20T08:25:56.957Z' 
+                      data: 
+                        startTime: '2018-11-20T08:20:31.941Z' 
+                        endTime: '2018-11-20T08:25:56.957Z' 
+                        acwEndTime: '2018-11-20T08:27:09.643Z' 
+                        fileToPlayUrl: 'https://test-mcrplaybackmanager-4b5e-9234-54cbe7855ca1.mp4' 
+                        videoImageUrl: null 
+                        waveformDataList: 
+                          - channel: 0  
+                            normalizedPcmData:
+                              - 0.001
+                              - 0.001
+                              - 0.001
+                        participantDataList: 
+                          - participantType: AGENT 
+                            agentName: Mary Walker 
+                            participantId: '271863' 
+                            segmentId: null
+                            userId: 11e846d2-dd9f-6f10-9aef-0242ac110002
+                            voiceStages: 
+                              - stageType: ACTIVE 
+                                startTime: '2018-11-20T08:20:31.941Z' 
+                                endTime: '2018-11-20T08:25:56.957Z' 
+                                recordingID: e079511b-c077-489e-85a3-24b1b147d3c7 
+                                displays: null 
+                            screenStages: 
+                              - stageType: ACTIVE 
+                                startTime: '2018-11-20T08:20:31.941Z' 
+                                endTime: '2018-11-20T08:25:56.957Z' 
+                                recordingID: e7621f2c-32e4-47cd-bfc5-29a48343f7e0 
+                                displays: 
+                                  - width: 1680
+                                    height: 1050
+                                    topLeftX: -1680
+                                    topLeftY: 0
+                                  - width: 1680
+                                    height: 1050
+                                    topLeftX: 0
+                                    topLeftY: 0
+                                  - width: 1366
+                                    height: 768
+                                    topLeftX: 1680
+                                    topLeftY: 0
+                            channel: 0 
+                          - participantType: CUSTOMER 
+                            agentName: null 
+                            participantId: '68367118' 
+                            userId: null 
+                            voiceStages: 
+                              - stageType: ACTIVE 
+                                startTime: '2018-11-20T08:20:31.941Z' 
+                                endTime: '2018-11-20T08:25:56.957Z' 
+                                recordingID: e079511b-c077-489e-85a3-24b1b147d3c7 
+                                displays: null 
+                            screenStages: [] 
+                            channel: 0 
+                        segmentsDataList: 
+                          - startTime: '2018-11-20T08:20:31.941Z' 
+                            endTime: '2018-11-20T08:25:56.957Z' 
+                            acwEndTime: '2018-11-20T08:27:09.643Z' 
+                            openReasonType: SEGMENT 
+                            closeReasonType: SEGMENT 
+                            directionType: OUTBOUND 
+                            source: null 
+                            firstSegment: false
+                            originalSourceFromSdr: inContactACD
+                            segmentId: 88f961cc-021f-4399-a730-4709d29e9840
+                            channelType: PHONE_CALL
+                            customerRestricted: false
+                        categoryMatchesList: 
+                           - categoryHierarchy: 
+                              - Account Inquiries 
+                              - Account Problems 
+                             secondsOffsets: 
+                              - 24
+                             confidence: 95 
+                        sentiments: 
+                           - overallSentiment: POSITIVE
+                             segmentStartTime: '2018-11-20T08:20:31.941Z' 
+                             channel: 1 
+                           - overallSentiment: POSITIVE 
+                             segmentStartTime: '2018-11-20T08:20:31.941Z' 
+                             channel: 0 
+                        dfoStages: null
+                      '@type': call
+                      callTaggingList: []
+                      dynamicBusinessData: []       
+                  - Interaction:
+                      mediaType: chat 
+                      channelType : CHAT
+                      startTime: '2018-11-21T08:27:09.643Z' 
+                      endTime: '2018-11-21T18:20:31.941Z'
+                      data: 
+                        startTime: '2018-11-21T08:27:09.643Z' 
+                        endTime: '2018-11-21T18:20:31.941Z' 
+                        acwEndTime : null
+                        fileToPlayUrl : null
+                        transferPoints: 
+                          - '2018-11-21T10:34:23.433Z' 
+                        participants: 
+                          - participantType: AGENT 
+                            participantName: Kevin Allen 
+                            screenStages : [ ]
+                          - participantType: CUSTOMER 
+                            participantName: '' 
+                            screenStages : [ ]
+                        messages: 
+                          - participantType: AGENT 
+                            participantName: Kevin Allen 
+                            text: agent 1 
+                            timeStamp: '2018-11-21T10:35:23.643Z' 
+                          - participantType: CUSTOMER 
+                            participantName: '' 
+                            text: Betty Alexander 
+                            timeStamp: '2018-11-21T10:35:23.643Z' 
+                        segmentsDataList : 
+                          - startTime : '2022-03-10T08:06:52.513Z'
+                            endTime : '2022-03-10T08:07:42.787Z'
+                            acwEndTime : '2022-03-10T08:07:42.787Z'
+                            openReasonType : SEGMENT
+                            closeReasonType : SEGMENT
+                            directionType : IN_BOUND
+                            source : null
+                            firstSegment : true
+                            originalSourceFromSdr : inContactACD
+                            segmentId : 179c43ff-e1be-4137-8bb5-180c45dd7413
+                            channelType : CHAT
+                            customerRestricted : false
+                        dfoStages : null
+                      '@type' : chat
+                      callTaggingList : 
+                        - updateTime : '2022-03-10T01:07:47.173-07:00'
+                        - value : Need appointment
+                      dynamicBusinessData : [ ]
+                  - Interaction:
+                      mediaType: email 
+                      channelType : EMAIL
+                      startTime: '2018-11-21T18:30:09.643Z' 
+                      endTime: '2018-11-21T18:36:36.347Z' 
+                      data: 
+                        startTime: '2018-11-21T18:30:09.643Z' 
+                        endTime: '2018-11-21T18:34:56.957Z' 
+                        acwEndTime: '2018-11-21T18:36:36.347Z'
+                        fileToPlayUrl : null                
+                        participants: 
+                          - participantType: AGENT 
+                            participantName: Angela Bryant 
+                            actions: 
+                              - timeStamp: '2018-11-21T18:30:09.643Z' 
+                                action: NewOutbound 
+                              - timeStamp: '2018-11-21T18:34:56.957Z' 
+                                action: Send 
+                            screenStages : [ ]
+                        content: 
+                          sentTime: '2018-11-21T18:34:56.957Z' 
+                          from: doNotAnswer@ourcompany.com 
+                          to: 
+                            - angelab@yourcompany.com 
+                          cc: [] 
+                          bcc: [] 
+                          subject: Hello 
+                          body: Hi 
+                        segmentsDataList : 
+                          - startTime : '2022-03-10T08:06:52.513Z'
+                            endTime : '2022-03-10T08:07:42.787Z'
+                            acwEndTime : '2022-03-10T08:07:42.787Z'
+                            openReasonType : SEGMENT
+                            closeReasonType : SEGMENT
+                            directionType : OUT_BOUND
+                            source : null
+                            firstSegment : false
+                            originalSourceFromSdr : inContactACD
+                            segmentId : 179c43ff-e1be-4137-8bb5-180c45dd7413
+                            channelType : EMAIL
+                            customerRestricted : false
+                        dfoStages : null
+                      '@type' : email
+                      callTaggingList : []
+                      dynamicBusinessData : [ ]                 
         '400':
           description: 400 Invalid Request
           content:
@@ -175,7 +552,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorApiResponse'
               example:
-                $ref: '#/components/examples/Error400Example'
+                internalCode: 8100
+                message: Invalid request.
         '401':
           description: 401 Not Authorized to Play Back
           content:
@@ -183,7 +561,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorApiResponse'
               example:
-                $ref: '#/components/examples/Error401Example'
+                internalCode: 8300
+                message: This interaction is blocked due to compliance requirements.
         '403':
           description: 403 Permissions Required
           content:
@@ -191,7 +570,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorApiResponse'
               example:
-                $ref: '#/components/examples/Error403Example'
+                internalCode: 8500
+                message: No permission to access this interaction.
         '404':
           description: 404 Interaction Not Found
           content:
@@ -199,7 +579,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorApiResponse'
               example:
-                $ref: '#/components/examples/Error404Example'
+                internalCode: 8200
+                message: Interaction media not found.
         '500':
           description: 500 Internal Server Error
           content:
@@ -207,164 +588,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorApiResponse'
               example:
-                $ref: '#/components/examples/Error500Example'
+                internalCode: 8400
+                message: Internal server error.
 components:
-  examples:
-    InteractionExample:
-      value:
-        contactId: 11e766de-4ace-33d0-9ff6-0242ac110004 
-        Interactions:
-          - Interaction:
-              mediaType: voice-and-screen 
-              
-              startTime: '2018-11-20T08:20:31.941Z' 
-              endTime: '2018-11-20T08:25:56.957Z' 
-              data: 
-                startTime: '2018-11-20T08:20:31.941Z' 
-                endTime: '2018-11-20T08:25:56.957Z' 
-                acwEndTime: '2018-11-20T08:27:09.643Z' 
-                fileToPlayUrl: 'https://test-mcrplaybackmanager-4b5e-9234-54cbe7855ca1.mp4' 
-                videoImageUrl: null 
-                waveformDataList: 
-                  - channel: 0  
-                    normalizedPcmData:
-                      - 0.001
-                      - 0.001
-                      - 0.001
-                participantDataList: 
-                  - participantType: AGENT 
-                    agentName: Mary Walker 
-                    participantId: '271863' 
-                    userId: 11e846d2-dd9f-6f10-9aef-0242ac110002 
-                    voiceStages: 
-                      - stageType: ACTIVE 
-                        startTime: '2018-11-20T08:20:31.941Z' 
-                        endTime: '2018-11-20T08:25:56.957Z' 
-                        recordingID: e079511b-c077-489e-85a3-24b1b147d3c7 
-                        displays: null 
-                    screenStages: 
-                      - stageType: ACTIVE 
-                        startTime: '2018-11-20T08:20:31.941Z' 
-                        endTime: '2018-11-20T08:25:56.957Z' 
-                        recordingID: e7621f2c-32e4-47cd-bfc5-29a48343f7e0 
-                        displays: 
-                          - width: 1680
-                            height: 1050
-                            topLeftX: -1680
-                            topLeftY: 0
-                          - width: 1680
-                            height: 1050
-                            topLeftX: 0
-                            topLeftY: 0
-                          - width: 1366
-                            height: 768
-                            topLeftX: 1680
-                            topLeftY: 0
-                    channel: 0 
-                  - participantType: CUSTOMER 
-                    agentName: null 
-                    participantId: '68367118' 
-                    userId: null 
-                    voiceStages: 
-                      - stageType: ACTIVE 
-                        startTime: '2018-11-20T08:20:31.941Z' 
-                        endTime: '2018-11-20T08:25:56.957Z' 
-                        recordingID: e079511b-c077-489e-85a3-24b1b147d3c7 
-                        displays: null 
-                    screenStages: [] 
-                    channel: 0 
-                segmentsDataList: 
-                  - startTime: '2018-11-20T08:20:31.941Z' 
-                    endTime: '2018-11-20T08:25:56.957Z' 
-                    acwEndTime: '2018-11-20T08:27:09.643Z' 
-                    openReasonType: SEGMENT 
-                    closeReasonType: SEGMENT 
-                    directionType: OUTBOUND 
-                    source: null 
-                categoryMatchesList: 
-                   - categoryHierarchy: 
-                      - Account Inquiries 
-                      - Account Problems 
-                     secondsOffsets: 
-                      - 24
-                     confidence: 95 
-                sentiments: 
-                   - overallSentiment: POSITIVE
-                     segmentStartTime: '2018-11-20T08:20:31.941Z' 
-                     channel: 1 
-                   - overallSentiment: POSITIVE 
-                     segmentStartTime: '2018-11-20T08:20:31.941Z' 
-                     channel: 0 
-          - Interaction:
-              mediaType: chat 
-              startTime: '2018-11-21T08:27:09.643Z' 
-              endTime: '2018-11-21T18:20:31.941Z' 
-              data: 
-                startTime: '2018-11-21T08:27:09.643Z' 
-                endTime: '2018-11-21T18:20:31.941Z' 
-                transferPoints: 
-                  - '2018-11-21T10:34:23.433Z' 
-                participants: 
-                  - participantType: AGENT 
-                    participantName: Kevin Allen 
-                  - participantType: CUSTOMER 
-                    participantName: '' 
-                messages: 
-                  - participantType: AGENT 
-                    participantName: Kevin Allen 
-                    text: agent 1 
-                    timeStamp: '2018-11-21T10:35:23.643Z' 
-                  - participantType: CUSTOMER 
-                    participantName: '' 
-                    text: Betty Alexander 
-          - Interaction:
-              mediaType: email 
-              startTime: '2018-11-21T18:30:09.643Z' 
-              endTime: '2018-11-21T18:36:36.347Z' 
-              data: 
-                startTime: '2018-11-21T18:30:09.643Z' 
-                endTime: '2018-11-21T18:34:56.957Z' 
-                acwEndTime: '2018-11-21T18:36:36.347Z' 
-                participants: 
-                  - participantType: AGENT 
-                    participantName: Angela Bryant 
-                    actions: 
-                      - timeStamp: '2018-11-21T18:30:09.643Z' 
-                        action: NewOutbound 
-                      - timeStamp: '2018-11-21T18:34:56.957Z' 
-                        action: Send 
-                content: 
-                  sentTime: '2018-11-21T18:34:56.957Z' 
-                  from: doNotAnswer@ourcompany.com 
-                  to: 
-                    - angelab@yourcompany.com 
-                  cc: [] 
-                  bcc: [] 
-                  subject: Hello 
-                  body: Hi 
-    Error400Example:
-      value:
-        internalCode: 8100
-        message: Invalid request.
-    Error401Example:
-      value:
-        internalCode: 8300
-        message: This interaction is blocked due to compliance requirements.
-    Error403Example:
-      value:
-        internalCode: 8500
-        message: No permission to access this interaction.
-    Error404Example:
-      value:
-        internalCode: 8200
-        message: Interaction media not found.
-    Error500Example:
-      value:
-        internalCode: 8400
-        message: Internal server error.
-    DownloadMediaExample:
-      value:
-        redirectUrl: 'https://test-mcrplaybackmanager-1sb9i02hff9vg.s3.us-west-2.amazonaws.com/perm_rp_test_withacd12294598/output_815728d2-c619-42da-8b67-624a491bddc1_.mp4?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEL3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIE9QKtxSYIy0igPAnBOaYGfD0YDgpzJSKCya47uOfnF9AiEAkyOIFTDHZq59lgh6jgpkD0i96frlBKuPQTfDY6Dd3Kkq%2BgMIVhADGgw5MzQxMzcxMzI2MDEiDCthLn5NdHvytuQ2XirXA02Gi4d6T7Cu9u0bm8IJ18W9dDfizxra%2BivfEOtNAXZfjkgsSz22FmHgTzqXtd2TR1%2BxaT9V%2BbqBcWP4Vzr0CQct%2FjZRZP0t5MBCMjY2EdLhkMDjZxAhgFhuILYQdA6JsnaJcsXuIhmmzdrRBJjLQYuC3wFSo6%2BqqWLCACeKIOtLRQrkHWBb3vvGggr5atmZqCDjBZUlpIqi0SsrHMfLAlZOhe0p4g93Pxvs1vyt02VZHa4Bz6qX%2FTO0eIK4orMN0OnU4sl29lNtvtiEQ0mdd0OUSnnMchWqtucK%2B08AhsTUhk%2FzyzVbmdEQiLye%2FLELVNj0crrp1Xm7erUKRMNBqk1%2B9SaPEEKNuQSa40ISl5AuaXzPcPheKJ8Km5%2FjqmG0YK%2Fm3SZZ4A5Z%2F2bZqT6VeqiPbKqjjfBQjzh%2FLWO3JRK33XJ40xnUmB9u4TmR6gSSE3TABdiMpPSSKp14ufoauEaglbyWHwhDLEcQPUEF%2FXCyt21Bs1jbF%2BOHAvEtvlyb%2FZrivn3vhZrZ4R24EfzMfiFVzzAfi0Ok1tLrqQiteJRdls3fyFHFE1SSpBc62gDaJroy67D5jp%2Brc5C%2Bn2%2FO7FD3dvYvs2dMl40IcZGc1SOowGRbadcsDzCJ6diLBjqlAdcQhzpTZfgV7KI0BXC8oaqsD2BcXwnEq%2B880IV8uSJ3iTwgTju8lLg9f2BVjWwjlMYldLzu9lyywD9inTsMdpiFNx5qzOL6q%2F0mE6TMzIqgum9M5tNppE5DgenKRQ55aiJsqldJTbdxxPArRNDRaePWD12eDREGvyi3JGxPcVaW5SwvvKPUgItMGykSL48EMssboJCIss2eii9l5y7Y0Qb0OnuzUw%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20211025T053208Z&X-Amz-SignedHeaders=host&X-Amz-Expires=2700&X-Amz-Credential=ASIA5S7XJOY4VP4MDEJF%2F20211025%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=c721ba9c98aa54239afc23e941516f53cf657a3d4a84d09b4c3bde4afbddfc59'      
   schemas:
   
     categoryMatches:
@@ -416,50 +642,104 @@ components:
       properties:
         startTime:
           type: string
-          format: date-time
-          description: Date and time the segment starts, configured according to ISO8601 RFC3339
+          format: date-time.
+          description: Date and time the segment starts, configured according to ISO8601 RFC3339.
         
         endTime:
           type: string
           format: date-time
-          description: Date and time the segment ends, configured according to ISO8601 RFC3339
+          description: Date and time the segment ends, configured according to ISO8601 RFC3339.
         
         acwEndTime:
           type: string
           format: date-time
-          description: Date and time the After Call Work (ACW) ends, configured according to ISO8601 RFC3339
+          description: Date and time the After Call Work (ACW) ends, configured according to ISO8601 RFC3339.
           
         openReasonType:
           type: string
-          description: Why the segment was initiated 
+          description: Why the segment was initiated.
           enum:
            - SEGMENT
            - TRANSFER
            - CONFERENCE
+           - CONTACT
+           - IVR
+           - ELEVATED
+           - TRANSFERRED_TO_EXTERNAL_NUMBER
+           - EXTERNAL_TRANSFER
            
         closeReasonType:
           type: string
-          description: Why the segment was ended 
+          description: Why the segment was ended.
           enum:
            - SEGMENT
            - TRANSFER
            - CONFERENCE
-  
+           - CONTACT
+           - IVR
+           - ELEVATED
+           - TRANSFERRED_TO_EXTERNAL_NUMBER
+           - EXTERNAL_TRANSFER
+
         directionType:
           type: string
-          description: How the segment was initiated
+          description: How the segment was initiated.
           enum:
            - INBOUND
            - OUTBOUND
            - INTERNAL
+           - UNKNOWN
            
         source:
           type: string
           nullable: true
           description: ACD source, such as inContact, Uptivity, 3rd recording solutions
-    
-        
-    
+          
+        firstSegment:
+          type: boolean
+          enum:
+            - true
+            - false
+          description: Indicates whether the segment is the first segment in the interaction.
+          
+        originalSourceFromSdr:
+          type: string
+          description: The original source of the media. Use the value from the segment data repository.
+          
+        segmentId:
+          type: string
+          description: This is unique id of the segment in interaction.
+          
+        channelType:
+          type: string
+          description: Channel type.
+          enum:
+           - PHONE_CALL
+           - EMAIL
+           - CHAT
+           - PHONE_CALL_IVR
+           - SMS
+           - TW_PRIVATE
+           - FB_PRIVATE
+           - WHATSAPP_PRIVATE
+           - TELEGRAM_PRIVATE
+           - APPLE_BUSINESS_CHAT_PRIVATE
+           - LINE_PRIVATE
+           - VIBER_PRIVATE
+           - WE_CHAT_PRIVATE
+           - CUSTOM_PRIVATE
+           - WORKITEM
+           - GOOGLE_BUSINESS_MESSAGES_PRIVATE
+           - SLACK_PRIVATE
+           - MICROSOFT_TEAMS_PRIVATE  
+           
+        customerRestricted:
+          type: boolean
+          enum:
+            - true
+            - false
+          description: Indicates whether the interaction is RecordAgentOnly.         
+      
     waveformData:
       type: object
       properties:
@@ -485,7 +765,11 @@ components:
            - ACTIVE
            - HOLD
            - MASK
-           - TRANSFER
+           - SOD_ROD
+           - ROD
+           - SOD
+           - WRAP_UP
+           - ThreadFocused
            
         startTime:
           type: string
@@ -503,10 +787,11 @@ components:
           description: Parameter used internally by CXone
           
         displays:
-          type: string
+          type: array
           nullable: true
           description: The configuration of the agent screens being recorded (size in pixels), this parameter is not used for voice recording
-       
+          items:
+            $ref: '#/components/schemas/displayProperties'
     
     displayProperties:
       type: object
@@ -530,7 +815,11 @@ components:
            - ACTIVE
            - HOLD
            - MASK
-           - TRANSFER
+           - SOD_ROD
+           - ROD
+           - SOD
+           - WRAP_UP
+           - ThreadFocused
            
         startTime:
           type: string
@@ -552,7 +841,45 @@ components:
           description: Configuration of the agent screens being recorded (size in pixels)
           items:
              $ref: '#/components/schemas/displayProperties'
-    
+
+    dfoStage:
+      type: object
+      properties:
+        stageType:
+          type: string
+          description: The phase in a focus-defocus recording.
+          enum:
+           - ACTIVE
+           - HOLD
+           - MASK
+           - SOD_ROD
+           - ROD
+           - SOD
+           - WRAP_UP
+           - ThreadFocused
+           
+        startTime:
+          type: string
+          format: date-time
+          description: Date and time the voice recording starts, configured according to ISO8601 RFC3339
+          
+        endTime:
+          type: string
+          format: date-time
+          description: Date and time the voice recording ends, configured according to ISO8601 RFC3339
+          
+        recordingID:
+          type: string
+          format: uuid
+          description: Parameter used internally by CXone
+          
+        displays:
+          type: array
+          nullable: true
+          description: Configuration of the agent screens being recorded (size in pixels), this parameter is not used for focus defocus recording
+          items:
+            $ref: '#/components/schemas/displayProperties'
+       
     VoiceAndScreenParticipant:
       type: object
       properties:
@@ -571,6 +898,11 @@ components:
           type: string
           description: Unique identifier of the participant (ACD participant ID)
           
+        segmentId:
+          type: string
+          format: uuid
+          description: Unique identifier of the segment.
+
         userId:
           type: string
           format: uuid
@@ -587,7 +919,7 @@ components:
           description: The stage in screen recording, this parameter is not used if the participantType is CUSTOMER
           items:
              $ref: '#/components/schemas/screenStage'
-          
+   
         channel:
           type: integer
           format: int32
@@ -632,8 +964,7 @@ components:
         timeStamp:
           type: string
           format: date-time
-          description: Timestamp of the specific message, configured according to ISO8601 RFC3339
-          
+          description: Timestamp of the specific message, configured according to ISO8601 RFC3339          
     EmailActions:
       type: object
       properties:
@@ -646,13 +977,15 @@ components:
          type: string
          description: Email events
          enum:
-           - Reply
-           - NewOutbound
+           - Send
+           - EndEmail
+           - Accept
            - Transfer
            - Forward
-           - Accept
-           - Send
-           
+           - Park
+           - UnPark
+           - Reply
+           - NewOutbound     
           
     EmailParticipant:
       type: object
@@ -680,43 +1013,76 @@ components:
           items:
              $ref: '#/components/schemas/screenStage'
 
-        content:
-          type: object
-          properties:
-            sentTime:
-              type: string
-              format: date-time
-              description: Date and time the email was sent, configured according to ISO8601 RFC3339
-            from: 
-              type: string
-              format: email
-              description: The sender's email address
-            to: 
-              type: array
-              items:
-                type: string
-                format: email
-                description: The addressee's email address
-            cc: 
-              type: array
-              items:
-                type: string
-                format: email
-                description: Email address of contacts copied on the email
-            bcc: 
-              type: array
-              items:
-                type: string
-                format: email
-                description: Email address of contacts blindly copied on the email
+    EmailContent:
+      type: object
+      properties:
+        sentTime:
+          type: string
+          format: date-time
+          description: Date and time the email was sent, configured according to ISO8601 RFC3339
+        from: 
+          type: string
+          format: email
+          description: The sender's email address
+        to: 
+          type: array
+          items:
+            type: string
+            format: email
+            description: The addressee's email address
+        cc: 
+          type: array
+          items:
+            type: string
+            format: email
+            description: Email address of contacts copied on the email
+        bcc: 
+          type: array
+          items:
+            type: string
+            format: email
+            description: Email address of contacts blindly copied on the email
           
-            subject:
-              type: string    
-              description: Subject of the email
+        subject:
+          type: string    
+          description: Subject of the email
             
-            body:
-              type: string 
-              description: Body of the email
+        body:
+          type: string 
+          description: Body of the email
+          
+    DynamicBusinessData:
+        type: object
+        properties:
+          id:
+            type: string
+            format: uuid
+            description: Identifier of business data
+            
+          value:
+            type: string
+            format: object
+            description: Value of business data
+           
+    BusinessDataValue:
+        type: object
+        properties:
+          SubjectKeyName: 
+            type: string
+            description: Name of subject (static value is Subject)
+            
+          AnalyticsKeyName:
+            type: string
+            description: Name of analytics (static value is Analytics) 
+            
+          updateTime:
+            type: string
+            format: date-time
+            description: Date and time for updated business data, configured according to ISO8601 RFC3339
+            
+          value:
+            type: string
+            description: Value of business data    
               
     VoiceAndScreen:
       type: object
@@ -746,7 +1112,7 @@ components:
           description: Normalized PCM data for each channel, used to visualize the waveforms (not applicable if the exclude-waveforms parameter is set to false)
           items:
             $ref: '#/components/schemas/waveformData' 
-        participants:
+        participantDataList:
           type: array
           description: The participants in the interaction
           items:
@@ -760,14 +1126,18 @@ components:
           type: array
           description: The categories that were identified, this parameter is only relevant for stereo recordings and is null if you don't have QM Analytics 
           items:
-            $ref: '#/components/schemas/categoryMatches'    
-            
+            $ref: '#/components/schemas/categoryMatches'          
         sentiments:
           type: array
           description: The sentiments that were identified for the segment, this parameter is only relevant for stereo recordings and is null if you don't have QM Analytics
           items:
             $ref: '#/components/schemas/sentiment'
-            
+        dfoStages:
+           type: array
+           nullable: true
+           description: The phase in focus-defocus recording, this parameter is used when there are focus-defocus phases.
+           items: 
+            $ref: '#/components/schemas/dfoStage'
     Chat:
       type: object
       properties:
@@ -801,7 +1171,18 @@ components:
           description: Each message in the chat, this is an array
           items:
             $ref: '#/components/schemas/ChatMessages' 
-      
+        segmentsDataList:
+          type: array
+          description: A segment is part of an interaction between one party and another, such as a customer and an agent
+          items:
+            $ref: '#/components/schemas/segmentsData'
+        dfoStages:
+           type: array
+           nullable: true
+           description: The phase in focus-defocus recording, this parameter is used when there are focus-defocus phases and is not set for chat.
+           items: 
+            $ref: '#/components/schemas/dfoStage'
+             
     Email:
       type: object
       properties:
@@ -826,6 +1207,23 @@ components:
           description: The participants in the interaction
           items:
             $ref: '#/components/schemas/EmailParticipant'
+        content:
+          type: object
+          description: The content of email
+          items:
+            $ref: '#/components/schemas/EmailContent'
+        segmentsDataList:
+          type: array
+          description: A segment is part of an interaction between one party and another, such as a customer and an agent
+          items:
+            $ref: '#/components/schemas/segmentsData'
+        dfoStages:
+           type: array
+           nullable: true
+           description: The phase in focus-defocus recording, this parameter is not set for email.
+           items: 
+            $ref: '#/components/schemas/dfoStage'
+     
       
     Interaction:
       type: object
@@ -840,6 +1238,32 @@ components:
            - chat-and-screen
            - email
            - email-and-screen
+           - BE
+           - BE_AND_SCREEN
+           - WORKITEM
+           
+        channelType:
+          type: string
+          description: Channel type
+          enum:
+           - PHONE_CALL
+           - EMAIL
+           - CHAT
+           - PHONE_CALL_IVR
+           - SMS
+           - TW_PRIVATE
+           - FB_PRIVATE
+           - WHATSAPP_PRIVATE
+           - TELEGRAM_PRIVATE
+           - APPLE_BUSINESS_CHAT_PRIVATE
+           - LINE_PRIVATE
+           - VIBER_PRIVATE
+           - WE_CHAT_PRIVATE
+           - CUSTOM_PRIVATE
+           - WORKITEM
+           - GOOGLE_BUSINESS_MESSAGES_PRIVATE
+           - SLACK_PRIVATE
+           - MICROSOFT_TEAMS_PRIVATE
            
         startTime:
           type: string
@@ -865,7 +1289,18 @@ components:
            - call
            - chat
            - email
-          
+        callTaggingList:
+          type: array
+          nullable: true
+          description: The disposition name in an interaction.
+          items:
+            $ref: '#/components/schemas/BusinessDataValue'
+        dynamicBusinessData:
+           type: array
+           nullable: true
+           description: Business data fields in the interaction
+           items:
+            $ref: '#/components/schemas/DynamicBusinessData'
     ApiResponse:
       type: object
       properties:
@@ -873,6 +1308,16 @@ components:
           type: string
           format: uuid
           description: Unique identifier of the contact (the entire interaction with all the segments)
+        acdcontactId: 
+          type: string
+          format: string
+          description: Unique identifier of the contact (the entire interaction with all the segments). This is the same as the inContact Master Contact ID.
+        elevatedInteraction:
+           type: boolean
+           enum:
+            - true
+            - false
+           description: Indicates whether the interaction is an elevated interaction.
         Interactions:
           type: array
           items:
@@ -882,8 +1327,8 @@ components:
       type: object 
       properties:
         redirectUrl:
-        type: string
-        description: The temporary media storage location (URL) for download  
+          type: string
+          description: The temporary media storage location (URL) for download  
     ErrorApiResponse:
       type: object
       properties:
