@@ -6,8 +6,7 @@ on:
   # Trigger mega-linter at every push. Action will also be visible from Pull Requests to main
   #push: # Comment this line to trigger action only on pull-requests (not recommended if you don't pay for GH Actions)
   pull_request:
-  push:
-    branches: [main]
+    branches: [master, main]
 
 #env: # Comment env block if you do not want to apply fixes
   # Apply linter fixes configuration
@@ -50,16 +49,3 @@ jobs:
           OPENAPI_SPECTRAL_CONFIG_FILE: "validation/yamlSchema/openapi/validation-rules.yaml"  #path of the file where custom rules are defined
           ENABLE_LINTERS: OPENAPI_SPECTRAL         
           PRINT_ALPACA: false
-          
-  Webhook:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Call Webhook
-        uses: distributhor/workflow-webhook@v2.0.3
-        env:
-         webhook_type: 'json-extended'
-         webhook_url: ${{ secrets.WEBHOOK_URL }}
-         webhook_secret: ${{ secrets.WEBHOOK_SECRET }}  
- 
