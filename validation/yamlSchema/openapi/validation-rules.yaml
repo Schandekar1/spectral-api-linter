@@ -16,6 +16,7 @@ rules:
   tag-description: false
   oas3-valid-media-example: warn
   oas3-valid-schema-example: warn
+  oas3-schema: warn
 
   openapi-field-required:
     description: openapi field is required.
