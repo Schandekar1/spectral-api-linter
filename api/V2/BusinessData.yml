@@ -4,7 +4,7 @@ info:
     Business Data fields are custom fields that can be associated with the
     call's metadata. these fields are sdused for enriching call interactions with
     data that is coming from external sources, mostly from CRM systems.<br>  The
-    API offers the following functionality:<cxvxcbr> 1. Set new business data fields
+    API offers the following functionality:<> 1. Set new business data fields
     (see limitations)<br> 2. Activate or Deactivate business data field<br> 3.
     Modify the business data display-name (see limitations)<br> 4. Query the
     number of available fields<br><br>
