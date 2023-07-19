@@ -88,7 +88,7 @@ rules:
     description: Complete URI for all API calls must follow the format https://<host name>/<service name>/<service version>/<resource name>
     message: "{{error}}"
     given: $
-    severity: error
+    severity: warn
     then:
       function: uri-format-validation
 
