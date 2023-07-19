@@ -17,7 +17,7 @@ paths:
       tags:
         - Accessing the Recording Media
       summary: Access the full contact  based on ACD Contact ID. The ACD Contact ID depends on the ACD solution.
-      description: Access the full contact based on ACD Contact ID. The ACD Contact ID depends on the ACD solution.
+      description: Access the full contact based on ACD Contact IDn. The ACD Contact ID depends on the ACD solution.
       operationId: getACDContactRecordingData
       parameters:
         - name: acd-call-id
