@@ -9,7 +9,7 @@ tags:
 schemes:
 - https
 servers:
-- url: https://api-do32.dev.nice-incontact.com/incontactapi/services/v27.0
+- url: https://api-do32.dev.nice-incontact.com/api/services/v27.0
 paths:
   "/station-profiles":
     get:
@@ -17,7 +17,7 @@ paths:
       - StationProfiles
       summary: New in v27.0 Returns a list of paginated Station Profiles
       operationId: get-station-profiles
-      description: This API Returns a list of paginated Station Profiles
+      description: This API Returns a list Station Profiles
       produces:
       - application/json
       parameters:
@@ -25,6 +25,7 @@ paths:
         description: Search criteria
         type: string
         in: query
+        required: true
       - name: fields
         description: Fields to be obtained in the response
         type: string
@@ -72,8 +73,6 @@ paths:
           description: InvalidParameters
         '401':
           description: Unauthorized
-        '403':
-          description: InvalidPermissions
         '500':
           description: ServiceException
     post:
@@ -88,7 +87,7 @@ paths:
       - name: stationProfile
         description: Station Profile to be created
         in: body
-        required: true
+        required: false
         schema:
           type: object
           additionalProperties: false
