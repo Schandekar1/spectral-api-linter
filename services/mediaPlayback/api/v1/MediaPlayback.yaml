@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  description: You can use this API to accesst CXone Recording media and metadata. When playing back an interaction, the API transfers the interaction metadata and a link to the media file (voice-only and voice-and-screen media types) or the interaction metadata and the transcript (chat and email media types). When downloading, the API transfers a link to the media file.
+  description: You can use this API to accesst CXone Recording media and metadata. 
   version: "V1"
   title: Media Playback API
   contact:
@@ -16,14 +16,14 @@ paths:
     get:
       tags:
         - Accessing the Recording Media
-      summary: Access the full contact (the entire interaction with all segments) based on ACD Contact ID. The ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID. Keep in mind that using the ACD Contact ID GET method, you can play back or download interactions recorded from December 13, 2018. Accessing an interaction recorded before December 13, 2018 will give an Interaction Not Found error.
-      description: Access the full contact (the entire interaction with all segments) based on ACD Contact ID. The ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID. Keep in mind that using the ACD Contact ID GET method, you can play back or download interactions recorded from December 13, 2018. Accessing an interaction recorded before December 13, 2018 will give an Interaction Not Found error.
+      summary: Access the full contact  based on ACD Contact ID. The ACD Contact ID depends on the ACD solution.
+      description: Access the full contact based on ACD Contact ID. The ACD Contact ID depends on the ACD solution.
       operationId: getACDContactRecordingData
       parameters:
         - name: acd-call-id
           in: query
-          description: Unique identifier received from the ACD (the ACD Call ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID)
-          required: true
+          description: Unique identifier received from the ACD 
+          required: false
           schema:
             type: string
         - name: media-type
@@ -46,7 +46,7 @@ paths:
         - name: exclude-waveforms
           in: query
           description: If your product does not display waveforms (sound waves) during playback, exclude them in the API to improve loading time. This parameter is only relevant for 'voice-only' or 'voice-and-screen' media types.
-          required: false
+          required: truw
           schema:
             type: boolean
             enum:
@@ -88,14 +88,6 @@ paths:
                 $ref: '#/components/schemas/ErrorApiResponse'
               example:
                 $ref: '#/components/examples/Error401Example'
-        '403':
-          description: 403 Permissions Required
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorApiResponse'
-              example:
-                $ref: '#/components/examples/Error403Example'
         '404':
           description: 404 Interaction Not Found
           content:
@@ -116,8 +108,8 @@ paths:
     get:
       tags:
         - Accessing the Recording Media
-      summary: Access a recording statement based on ACD Contact ID and Statement ID. The ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID.
-      description: Access a recording statement based on ACD Contact ID and and Statement ID. The ACD Contact ID depends on the ACD solution, for example, this is the same as the inContact Master Contact ID.
+      summary: Access a recording statement based on ACD Contact ID and Statement ID. 
+      description: Access a recording statement based on ACD Contact ID and and Statement ID. 
       operationId: getDataToPlayByContactStatementId
       parameters:
         - name: acdContactId
