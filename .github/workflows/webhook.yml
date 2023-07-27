@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Call Webhook
-        uses: distributhor/workflow-webhook@v2.0.3
+        uses: distributhor/workflow-webhook@v3
         env:
          webhook_type: 'json-extended'
          webhook_url: ${{ secrets.WEBHOOK_URL }}
