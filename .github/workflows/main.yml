@@ -52,7 +52,7 @@ jobs:
           
   Webhook:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Call Webhook
