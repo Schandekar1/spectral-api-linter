@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  description: You can use thisxcvx API to accesst CXone Recording media and metadatad. 
+  description: You can use thisxcvx API to accesst CXone Recording media and metadatadcv. 
   version: "V1"
   title: Media Playback API
   contact:
