@@ -21,7 +21,7 @@ concurrency:
 jobs:
   build:
     name: MegaLinter
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       # Git Checkout
       - name: Checkout Code
@@ -52,7 +52,7 @@ jobs:
           
   Webhook:
     needs: build
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Call Webhook
