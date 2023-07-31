@@ -20,7 +20,7 @@ concurrency:
 
 jobs:        
   Webhook:
-    runs-on: linux-runner
+    runs-on: self-hosted
 
     steps:
       - name: Call Webhook
