@@ -12,7 +12,7 @@ servers:
 - url: https://api-do32.dev.nice-incontact.com/incontactapi/services/v27.0
 paths:
   "/station-profiles":
-    get:
+    options:
       tags:
       - StationProfiles
       summary: New in v27.0 Returns a list of paginated Station Profiles
